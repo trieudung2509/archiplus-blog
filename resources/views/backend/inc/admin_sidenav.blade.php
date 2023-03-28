@@ -54,6 +54,21 @@
             </li>
             @endif
 
+            <li class="aiz-side-nav-item">
+                <a href="{{ route('aboutus.edit') }}" class="aiz-side-nav-link {{ areActiveRoutes(['aboutus.edit'])}}">
+                    <i class="las la-folder-open aiz-side-nav-icon"></i>
+                    <span class="aiz-side-nav-text">{{ translate('About Us') }}</span>
+                </a>
+            </li>
+
+            <li class="aiz-side-nav-item">
+                <a href="{{ route('contact.edit') }}" class="aiz-side-nav-link {{ areActiveRoutes(['contact.edit'])}}">
+                    <i class="las la-folder-open aiz-side-nav-icon"></i>
+                    <span class="aiz-side-nav-text">{{ translate('Contact Page') }}</span>
+                </a>
+            </li>
+
+
             <!-- marketing -->
             @if(Auth::user()->user_type == 'admin' || in_array('11', json_decode(Auth::user()->staff->role->permissions)))
             <li class="aiz-side-nav-item">
@@ -63,13 +78,6 @@
                     <span class="aiz-side-nav-arrow"></span>
                 </a>
                 <ul class="aiz-side-nav-list level-2">
-                    @if(Auth::user()->user_type == 'admin' || in_array('7', json_decode(Auth::user()->staff->role->permissions)))
-                    <li class="aiz-side-nav-item">
-                        <a href="{{route('newsletters.index')}}" class="aiz-side-nav-link">
-                            <span class="aiz-side-nav-text">{{ translate('Newsletters') }}</span>
-                        </a>
-                    </li>
-                    @endif
                     <li class="aiz-side-nav-item">
                         <a href="{{ route('subscribers.index') }}" class="aiz-side-nav-link">
                             <span class="aiz-side-nav-text">{{ translate('Subscribers') }}</span>
@@ -96,16 +104,6 @@
                     <li class="aiz-side-nav-item">
                         <a href="{{ route('website.footer', ['lang'=>  App::getLocale()] ) }}" class="aiz-side-nav-link {{ areActiveRoutes(['website.footer'])}}">
                             <span class="aiz-side-nav-text">{{translate('Footer')}}</span>
-                        </a>
-                    </li>
-                    <li class="aiz-side-nav-item">
-                        <a href="{{ route('website.pages') }}" class="aiz-side-nav-link {{ areActiveRoutes(['website.pages', 'custom-pages.create' ,'custom-pages.edit'])}}">
-                            <span class="aiz-side-nav-text">{{translate('Pages')}}</span>
-                        </a>
-                    </li>
-                    <li class="aiz-side-nav-item">
-                        <a href="{{ route('website.appearance') }}" class="aiz-side-nav-link">
-                            <span class="aiz-side-nav-text">{{translate('Appearance')}}</span>
                         </a>
                     </li>
                 </ul>
@@ -157,23 +155,6 @@
                 </ul>
             </li>
             @endif
-            @if(Auth::user()->user_type == 'admin' || in_array('24', json_decode(Auth::user()->staff->role->permissions)))
-            <li class="aiz-side-nav-item">
-                <a href="#" class="aiz-side-nav-link">
-                    <i class="las la-user-tie aiz-side-nav-icon"></i>
-                    <span class="aiz-side-nav-text">{{translate('System')}}</span>
-                    <span class="aiz-side-nav-arrow"></span>
-                </a>
-                <ul class="aiz-side-nav-list level-2">
-                    <li class="aiz-side-nav-item">
-                        <a href="{{route('system_server')}}" class="aiz-side-nav-link">
-                            <span class="aiz-side-nav-text">{{translate('Server status')}}</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            @endif
-
             </ul><!-- .aiz-side-nav -->
         </div><!-- .aiz-side-nav-wrap -->
     </div><!-- .aiz-sidebar -->

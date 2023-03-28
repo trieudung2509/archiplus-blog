@@ -17,6 +17,14 @@ Route::get('/update/step2', 'UpdateController@step2')->name('update.step2');
 
 Route::get('/admin', 'AdminController@admin_dashboard')->name('admin.dashboard')->middleware(['auth', 'admin']);
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function() {
+    // about us
+    Route::get('/about-us', 'AboutUsController@edit')->name('aboutus.edit');
+    Route::post('/about-us', 'AboutUsController@update')->name('aboutus.update');
+
+    // contact
+    Route::get('/contact', 'ContactController@edit')->name('contact.edit');
+    Route::post('/contact', 'ContactController@update')->name('contact.update');
+
     //Update Routes
 
     Route::resource('categories', 'CategoryController');
