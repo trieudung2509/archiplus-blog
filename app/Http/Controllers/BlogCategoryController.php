@@ -15,6 +15,7 @@ class BlogCategoryController extends Controller
      */
     public function index(Request $request)
     {
+        
         $sort_search =null;
         $categories = BlogCategory::orderBy('category_name', 'asc');
 
@@ -35,7 +36,8 @@ class BlogCategoryController extends Controller
     public function create()
     {
         $all_categories = BlogCategory::all();
-        return view('backend.blog_system.category.create', compact('all_categories'));
+        $list_category = BlogCategory::getCategories($all_categories);
+        return view('backend.blog_system.category.create', compact('all_categories', 'list_category'));
     }
 
     /**

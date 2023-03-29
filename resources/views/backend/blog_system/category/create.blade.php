@@ -17,6 +17,16 @@
                             <input type="text" placeholder="{{translate('Name')}}" id="category_name" name="category_name" class="form-control" required>
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label">{{translate('Parent')}}</label>
+                        <div class="col-md-9">
+                            <select type="text" placeholder="{{translate('Parent')}}" id="parent" name="parent" class="form-control" required>
+                                @foreach ($list_category as $k => $v)
+                                    <option value={{$k}}> {{$v}} </option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
                     
                     <div class="form-group mb-0 text-right">
                         <button type="submit" class="btn btn-primary">
