@@ -14,7 +14,8 @@ class AddPaidToBlogCategoriesTable extends Migration
     public function up()
     {
         Schema::table('blog_categories', function (Blueprint $table) {
-            $table->integer('parent');
+                $table->dropColumn('parent');
+                $table->integer('parent_id');
         });
     }
 
@@ -26,7 +27,7 @@ class AddPaidToBlogCategoriesTable extends Migration
     public function down()
     {
         Schema::table('blog_categories', function (Blueprint $table) {
-            $table->dropColumn('parent');
+            //
         });
     }
 }

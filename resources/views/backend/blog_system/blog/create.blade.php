@@ -28,9 +28,9 @@
                         <div class="col-md-9">
                             <select class="form-control aiz-selectpicker" name="category_id" id="category_id" data-live-search="true" required>
                                 <option>--</option>
-                                @foreach ($blog_categories as $category)
-                                <option value="{{ $category->id }}">
-                                    {{ $category->category_name }}
+                                @foreach ( get_categories( $blog_categories ) as $id => $name)
+                                <option value="{{ $id }}">
+                                    {{ $name }}
                                 </option>
                                 @endforeach
                             </select>

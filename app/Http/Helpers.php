@@ -322,3 +322,22 @@ if (!function_exists('get_images_path')) {
         return $paths;
     }
 }
+if (!function_exists('get_categories')) {
+    function get_categories($categories, $parent_id = 0, $char = '', &$result = [0 => 'None']) 
+    {
+        foreach ($categories as $key => $item)
+        {
+            if ($item['parent_id'] == $parent_id)
+            {
+                $result[$item['id']] = $char . $item['category_name'];
+                
+                unset($categories[$key]);
+                
+                get_categories($categories, $item['id'], $char.'|---', $result);
+            }
+        }
+        return $result;
+
+    }
+}
+    

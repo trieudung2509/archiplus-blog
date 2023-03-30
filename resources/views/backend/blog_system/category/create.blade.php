@@ -18,10 +18,10 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3 col-form-label">{{translate('Parent')}}</label>
+                        <label class="col-md-3 col-form-label">{{translate('Parent Category')}}</label>
                         <div class="col-md-9">
-                            <select type="text" placeholder="{{translate('Parent')}}" id="parent" name="parent" class="form-control" required>
-                                @foreach ($list_category as $k => $v)
+                            <select type="text" placeholder="{{translate('Parent Category Id')}}" id="parent" name="parent" class="form-control aiz-selectpicker" data-live-search="true" required>
+                                @foreach ( get_categories( $all_categories )  as $k => $v)
                                     <option value={{$k}}> {{$v}} </option>
                                 @endforeach
                             </select>

@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\BlogCategory; 
+use App\BlogCategory;
+use App\Http\Helpers;
 
 class BlogCategoryController extends Controller
 {
@@ -36,8 +37,7 @@ class BlogCategoryController extends Controller
     public function create()
     {
         $all_categories = BlogCategory::all();
-        $list_category = BlogCategory::getCategories($all_categories);
-        return view('backend.blog_system.category.create', compact('all_categories', 'list_category'));
+        return view('backend.blog_system.category.create', compact('all_categories'));
     }
 
     /**
