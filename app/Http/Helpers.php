@@ -322,8 +322,46 @@ if (!function_exists('get_images_path')) {
         return $paths;
     }
 }
+
+
+if (!function_exists('utcToLocalTime')) {
+    function utcToLocalTime($dateTime)
+    {
+        return Carbon\Carbon::parse($dateTime, 'UTC')->setTimezone('Asia/Bangkok');
+    }
+}
+
+if (!function_exists('localTimeToUtc')) {
+    function localTimeToUtc($dateTime)
+    {
+        return Carbon\Carbon::parse($dateTime, app_timezone())->setTimezone('UTC');
+    }
+}
+
+if (!function_exists('currentDateTime')) {
+    function currentTimeUtc()
+    {
+        return Carbon\Carbon::parse(Carbon\Carbon::now(), app_timezone())->setTimezone('UTC');
+    }
+}
+
+
+if(!function_exists('showNumber')) {
+    function showNumber($number) {
+        $str = '';
+        if ($number > 1000) {
+            $str .= round($number/1000, 2).'k';
+        } else {
+            $str = $number;
+        }
+        return $str;
+    }
+}
+
+
+
 if (!function_exists('get_categories')) {
-    function get_categories($categories, $parent_id = 0, $char = '', &$result = [0 => 'None']) 
+    function get_categories($categories, $parent_id = 0, $char = '', &$result = [0 => '-----']) 
     {
         foreach ($categories as $key => $item)
         {

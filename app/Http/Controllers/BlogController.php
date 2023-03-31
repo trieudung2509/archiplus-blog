@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use App\BlogCategory;
 use App\Blog;
+use App\User;
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
@@ -16,17 +21,57 @@ class BlogController extends Controller
      */
     public function index(Request $request)
     {
+        $post_id = null;
         $sort_search = null;
+        $sort_status = null;
+        $sort_category_ids = null;
+        $sort_published_date_range = null;
+        $sort_author = null;
         $blogs = Blog::orderBy('created_at', 'desc');
-        
+        if ($request->post_id != null) {
+            $blogs = $blogs->where(['id' => $request->post_id]);
+            $post_id = $request->post_id;
+        }
+
+        if ($request->status != null) {
+            $blogs = $blogs->orWhere(['status' => $request->status]);
+            $sort_status = $request->status;
+        }
+
         if ($request->search != null){
             $blogs = $blogs->where('title', 'like', '%'.$request->search.'%');
             $sort_search = $request->search;
         }
 
+        if ($request->published_date_range != null) {
+            $date_range_array = explode(' to ', $request->published_date_range);
+            $start_time = localTimeToUtc($date_range_array[0]);
+            $end_time = localTimeToUtc($date_range_array[1]);
+            $blogs = $blogs->where('published_date', '>=', $start_time)->where('published_date', '<=', $end_time);
+            $sort_published_date_range = $request->published_date_range;
+        }
+
+        if ($request->category_ids != null) {
+            $sort_category_ids = $request->category_ids;
+            $blogs = $blogs->whereHas('category', function($query) use ($request) {
+                return $query->whereIn('id', $request->category_ids);
+            });
+        }
+
+        if ((!isset($request->author) || trim($request->author) === '') == false) {
+            $blogs = $blogs->whereHas('author', function($query) use ($request) {
+                return $query->where('name', 'LIKE', '%'.$request->author.'%');
+            });
+            $sort_author = $request->author;
+        }
+        
+       
+
+        $list_categories = BlogCategory::where(['status' => 1])->get();
         $blogs = $blogs->paginate(15);
 
-        return view('backend.blog_system.blog.index', compact('blogs','sort_search'));
+        return view('backend.blog_system.blog.index', compact('blogs','sort_search', 'sort_category_ids', 'sort_published_date_range',
+         'sort_author', 'sort_status', 'list_categories','post_id'));
     }
 
     /**
@@ -52,6 +97,7 @@ class BlogController extends Controller
         $request->validate([
             'category_id' => 'required',
             'title' => 'required|max:255',
+            'banner' => 'required'
         ]);
 
         $blog = new Blog;
@@ -59,18 +105,18 @@ class BlogController extends Controller
         $blog->category_id = $request->category_id;
         $blog->title = $request->title;
         $blog->banner = $request->banner;
-        $blog->slug = preg_replace('/[^A-Za-z0-9\-]/', '', str_replace(' ', '-', $request->slug));
+        $blog->slug = Str::slug($request->title, '-');
         $blog->short_description = $request->short_description;
-        $blog->description = $request->description;
+        $blog->description = $request->description; 
+        $blog->user_id = Auth::user()->id;
         
         $blog->meta_title = $request->meta_title;
         $blog->meta_img = $request->meta_img;
         $blog->meta_description = $request->meta_description;
         $blog->meta_keywords = $request->meta_keywords;
-        
         $blog->save();
-
-        flash(translate('Blog post has been created successfully'))->success();
+       
+        flash(translate('You has been created successfully'))->success();
         return redirect()->route('blog.index');
     }
 
@@ -95,7 +141,7 @@ class BlogController extends Controller
     {
         $blog = Blog::find($id);
         $blog_categories = BlogCategory::all();
-        
+
         return view('backend.blog_system.blog.edit', compact('blog','blog_categories'));
     }
 
@@ -111,6 +157,7 @@ class BlogController extends Controller
         $request->validate([
             'category_id' => 'required',
             'title' => 'required|max:255',
+            'banner' => 'required'
         ]);
 
         $blog = Blog::find($id);
@@ -118,7 +165,7 @@ class BlogController extends Controller
         $blog->category_id = $request->category_id;
         $blog->title = $request->title;
         $blog->banner = $request->banner;
-        $blog->slug = preg_replace('/[^A-Za-z0-9\-]/', '', str_replace(' ', '-', $request->slug));
+        $blog->slug = Str::slug($request->title, '-');
         $blog->short_description = $request->short_description;
         $blog->description = $request->description;
         
@@ -126,16 +173,19 @@ class BlogController extends Controller
         $blog->meta_img = $request->meta_img;
         $blog->meta_description = $request->meta_description;
         $blog->meta_keywords = $request->meta_keywords;
-        
+        $blog->post_modified = currentTimeUtc();
         $blog->save();
 
-        flash(translate('Blog post has been updated successfully'))->success();
+        flash(translate('You has been updated successfully'))->success();
         return redirect()->route('blog.index');
     }
     
     public function change_status(Request $request) {
         $blog = Blog::find($request->id);
         $blog->status = $request->status;
+        if ($request->status == 1) {
+            $blog->published_date = currentTimeUtc();
+        }
         
         $blog->save();
         return 1;
@@ -150,6 +200,7 @@ class BlogController extends Controller
     public function destroy($id)
     {
         Blog::find($id)->delete();
+        flash(translate('You has been soft delete successfully'))->success();
         return redirect('admin/blog');
     }
 

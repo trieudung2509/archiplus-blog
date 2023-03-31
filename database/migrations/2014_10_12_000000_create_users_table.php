@@ -14,7 +14,7 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->integer('referred_by')->nullable();
             $table->string('provider_id', 50)->nullable();
             $table->string('user_type')->default("customer");

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\BlogCategory;
-use App\Http\Helpers;
+use Illuminate\Support\Str;
 
 class BlogCategoryController extends Controller
 {
@@ -48,7 +48,6 @@ class BlogCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        
         $request->validate([
             'category_name' => 'required|max:255',
         ]);
@@ -56,7 +55,14 @@ class BlogCategoryController extends Controller
         $category = new BlogCategory;
         
         $category->category_name = $request->category_name;
-        $category->slug = preg_replace('/[^A-Za-z0-9\-]/', '', str_replace(' ', '-', $request->category_name));
+        $category->slug = Str::slug($request->category_name, '-');
+        $category->display_order =  $request->display_order != null ? $request->display_order : 0;
+        $category->description = $request->description;
+        $category->parent_id = $request->parent_id != 0 ? $request->parent_id : null;
+        $category->meta_title = $request->meta_title;
+        $category->meta_img = $request->meta_img;
+        $category->meta_description = $request->meta_description;
+        $category->status = 1;
         
         $category->save();
         
@@ -106,7 +112,13 @@ class BlogCategoryController extends Controller
         $category = BlogCategory::find($id);
 
         $category->category_name = $request->category_name;
-        $category->slug = preg_replace('/[^A-Za-z0-9\-]/', '', str_replace(' ', '-', $request->category_name));
+        $category->slug = Str::slug($request->category_name, '-');
+        $category->display_order =  $request->display_order != null ? $request->display_order : 0;
+        $category->description = $request->description;
+        $category->parent_id = $request->parent_id != 0 ? $request->parent_id : null;
+        $category->meta_title = $request->meta_title;
+        $category->meta_img = $request->meta_img;
+        $category->meta_description = $request->meta_description;
         
         $category->save();
         
@@ -124,7 +136,16 @@ class BlogCategoryController extends Controller
     public function destroy($id)
     {
         BlogCategory::find($id)->delete();
-        
-        return redirect('admin/blog-category');
+
+        flash(translate('Blog category has been deleted successfully'))->success();
+        return redirect()->route('blog-category.index');
+    }
+
+    public function change_status(Request $request) {
+        $category = BlogCategory::find($request->id);
+        $category->status = $request->status;
+        $category->category_status = $request->status == 1 ? "published" : "draft";
+        $category->save();
+        return 1;
     }
 }

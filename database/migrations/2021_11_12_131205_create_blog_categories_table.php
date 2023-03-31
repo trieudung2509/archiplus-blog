@@ -17,8 +17,15 @@ class CreateBlogCategoriesTable extends Migration
             $table->id();
             $table->string("category_name");
             $table->string("slug");
+            $table->integer('parent_id')->nullable();
+            $table->boolean('status')->default(1);
+            $table->integer('display_order')->default(0);
+            $table->text("description")->nullable();
+            $table->string('meta_img')->nullable();
+            $table->string('meta_title')->nullable();
+            $table->text('meta_description')->nullable();
             $table->timestamps();
-            $table->softDeletes("deleted_at")->nullable();
+            $table->softDeletes();
         });
     }
 

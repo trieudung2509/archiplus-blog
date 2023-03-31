@@ -75,9 +75,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     //Blog Section
     Route::resource('blog-category', 'BlogCategoryController');
     Route::get('/blog-category/destroy/{id}', 'BlogCategoryController@destroy')->name('blog-category.destroy');
+    Route::post('/blog-category/change-status', 'BlogCategoryController@change_status')->name('blog-category.change-status');
     Route::resource('blog', 'BlogController');
     Route::get('/blog/destroy/{id}', 'BlogController@destroy')->name('blog.destroy');
     Route::post('/blog/change-status', 'BlogController@change_status')->name('blog.change-status');
+    
 
     // Route::resource('pages', 'PageController');
     // Route::get('/pages/destroy/{id}', 'PageController@destroy')->name('pages.destroy');
