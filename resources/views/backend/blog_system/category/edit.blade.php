@@ -29,7 +29,11 @@
                         <div class="col-md-9">
                             <select type="text" placeholder="{{translate('Parent Category Id')}}" id="parent_id" name="parent_id" class="form-control aiz-selectpicker" data-live-search="true" value="{{ $cateogry->parent_id }}">
                                 @foreach ( get_categories( $all_categories ) as $k => $v)
-                                    <option value={{$k}}> {{$v}} </option>
+                                    @if ($k == $cateogry->parent_id)
+                                        <option selected value={{$k}}> {{$v}} </option>
+                                    @else
+                                        <option value={{$k}}> {{$v}} </option>
+                                    @endif;
                                 @endforeach
                             </select>
                         </div>
