@@ -40,4 +40,17 @@ class AboutUsController extends Controller
         flash(translate('Update has been updated successfully'))->success();
         return redirect()->back();
     }
+
+
+    // FE
+    public function about_page() {
+        $about_us = AboutUs::first();
+        if ($about_us) {
+            $title = $about_us->title;
+            $description = $about_us->description;
+            $content = $about_us->content;
+        }
+
+        return view("frontend.about_us", compact('title', 'description', 'content'));
+    }
 }

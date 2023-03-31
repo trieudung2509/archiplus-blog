@@ -4,10 +4,12 @@
 <section class="text-center py-6">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-6 mx-auto">
-				<img src="{{ static_asset('assets/img/500.svg') }}" class="img-fluid w-75">
-				<h1 class="h2 fw-700 mt-5">{{ translate("Something went wrong!") }}</h1>
-		    	<p class="fs-16 opacity-60">{{ translate("Sorry for the inconvenience, but we're working on it.") }} <br> {{ translate("Error code") }}: 500</p>
+			<div class="container-narrow">
+				<p class="headline-1 color-gold mb-10em">500</p>
+				<h1 class="headline-3 letters js-wordsplit text-center mb-10em">Sorry for the inconvenience, but we're working on it.</h1>
+				<p class="text-center">
+				<a href="/" class="btn btn--bordered" title="Return to Xavio">Return to Xavio</a>
+				</p>
 			</div>
 		</div>
 	</div>

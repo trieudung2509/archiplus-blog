@@ -9,6 +9,13 @@
 			    <h3 class="fw-600 mt-5">{{translate('We are Under Maintenance.')}}</h3>
 			    <div class="lead">{{translate('We will be back soon!')}}</div>
 			</div>
+			<div class="container-narrow">
+				<p class="headline-1 color-gold mb-10em">Maintenance</p>
+				<h1 class="headline-3 letters js-wordsplit text-center mb-10em">We are Under Maintenance. We will be back soon!</h1>
+				<p class="text-center">
+				<a href="/" class="btn btn--bordered" title="Return to Xavio">Return to Xavio</a>
+				</p>
+			</div>
 		</div>
 	</div>
 </section>

@@ -22,9 +22,19 @@ Route::post('/language', 'LanguageController@changeLanguage')->name('language.ch
 Route::post('/currency', 'CurrencyController@changeCurrency')->name('currency.change');
 //payhere below
 
-Route::get('/', function() {
-    return "ok";
-})->name('home');
+// home page
+Route::get('/', 'HomeController@home_page')->name('home');
+
+// contact 
+Route::get('/contact', 'ContactController@contact_page')->name('contact_page');
+
+// about us page
+Route::get('/about-us', 'AboutUsController@about_page')->name('about_page');
+
+// news
+Route::get('/news', 'NewController@news_page')->name('news_page');
+Route::get('/news/{slug', 'NewController@detail_page')->name('detail_page');
+
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 //Blog Section
 Route::get('/blog', 'BlogController@all_blog')->name('blog');

@@ -38,4 +38,12 @@ class ContactController extends Controller
         flash(translate('Update has been updated successfully'))->success();
         return redirect()->back();
     }
+
+    // FE
+    public function contact_page() {
+        $contact = Contact::first();
+        $title = $contact->title;
+        $description = $contact->description;
+        return view("frontend.contact_page", compact('title', 'description'));
+    }
 }

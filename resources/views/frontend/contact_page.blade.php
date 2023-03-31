@@ -1,0 +1,97 @@
+@extends('frontend.layouts.app')
+
+@section('meta_title')
+    {{ get_setting('meta_title').' | '.get_setting('site_motto') }}
+@endsection
+
+@section('canonical') {{ url('') }} @endsection
+
+@section('content')
+    <main>
+        <section class=" section section--p-none-top section--p-none-bottom">
+        <div class="container  ">
+            <div class="row">
+            <div class="col-lg-6">
+                <div class="content mb-20em"></div>
+                <form id="form_builder_2a4582f4e13ab499fa90a0348a27ff91" name="Contact form" class=" form  form--two-column  " onsubmit="return App.submitForm({form: this, url: '/ajax/sendForm'});">
+                <div class="form__group mb-20em ">
+                    <input data-form-id="form_builder_2a4582f4e13ab499fa90a0348a27ff91" type="text" class="js-form-builder-field form__input" name="first_name" id="bp51320d78e8be5a11a8a2cafcec492aae" required>
+                    <label class="form__label" for="bp51320d78e8be5a11a8a2cafcec492aae"> First Name </label>
+                </div>
+                <div class="form__group mb-20em ">
+                    <input data-form-id="form_builder_2a4582f4e13ab499fa90a0348a27ff91" type="text" class="js-form-builder-field form__input" name="last_name" id="bp6728c0f6ed50c1f4559285c3b91e3a5a" required>
+                    <label class="form__label" for="bp6728c0f6ed50c1f4559285c3b91e3a5a"> Last Name </label>
+                </div>
+                <div class="form__group mb-20em ">
+                    <input data-form-id="form_builder_2a4582f4e13ab499fa90a0348a27ff91" type="text" class="js-form-builder-field form__input" name="contact_number" id="bp53463950ddeb97d4a23f3134eccd1ffc" required>
+                    <label class="form__label" for="bp53463950ddeb97d4a23f3134eccd1ffc"> Contact number </label>
+                </div>
+                <div class="form__group mb-20em ">
+                    <input data-form-id="form_builder_2a4582f4e13ab499fa90a0348a27ff91" type="email" class="js-form-builder-field form__input" name="email_address" id="bpfc99e52247f95c7490355f9351c5d4e5" required>
+                    <label class="form__label" for="bpfc99e52247f95c7490355f9351c5d4e5"> Email Address </label>
+                </div>
+                <div class="form__group mb-20em form__group--full-width">
+                    <textarea data-form-id="form_builder_2a4582f4e13ab499fa90a0348a27ff91" class="js-form-builder-field form__textarea" name="message" id="bpec53508f6423d39f4a7e6aa7a2c89570"></textarea>
+                    <label class="form__label" for="bpec53508f6423d39f4a7e6aa7a2c89570"> Message </label>
+                </div>
+                <input type="hidden" name="form_gen_id" value="2a4582f4e13ab499fa90a0348a27ff91">
+                <input type="hidden" value="1" name="form_id">
+                <input type="hidden" value="contact" name="page_slug">
+                <input type="hidden" value="23" name="page_id">
+                <input type="hidden" name="recaptcha">
+                <div class="form__group form__group--full-width">
+                    <div class="checkbox__container">
+                    <input class="checkbox" type="checkbox" name="consent" id="consent-c2" required>
+                    <label class="checkbox__label" for="consent-c2">
+                        <span class="half-opacity">By checking this box, you agree to be contacted via phone and email regarding your interest in our products and services. We will treat your data in accordance with our <a href="">privacy policy</a>. </span>
+                    </label>
+                    </div>
+                </div>
+                <div class="form__row form__row--with-dropzone">
+                    <div class="form__row__left">
+                    <div class="form__group">
+                        <input type="file" name="file" id="file" class="inputfile">
+                        <label class="btn btn--file" for="file">
+                        <span class="btn__inner"> Choose a file </span>
+                        </label>
+                    </div>
+                    </div>
+                    <div class="form__row__right">
+                    <div class="form__group">
+                        <button class="btn btn--bordered btn--bordered-gold btn--full-width" type="submit"> Submit </button>
+                    </div>
+                    </div>
+                </div>
+                <div class="loading"></div>
+                </form>
+            </div>
+            <div class="col-xl-4 offset-xl-2 col-lg-5 offset-lg-1">
+                <div class="box box--padded box--bordered text-center">
+                <p class="headline-6 mb-5em"> Berkeley Square Client Office </p>
+                <div class="content mb-20em">
+                    <p>2nd Floor Berkeley Square House, Berkeley Square, London W1J 6BD</p>
+                </div>
+                <p class="headline-6 mb-5em"> Country Design Studio </p>
+                <div class="content">
+                    <p>Lechtal House, Borovere Business Park, Borovere Lane, Alton GU34 1FH</p>
+                </div>
+                <p class="headline-6 mt-20em mb-5em">Telephone</p>
+                <a href="tel:4402033010077" title="Call us" class="link">+44 (0)203 301 0077</a>
+                <p class="headline-6 mt-20em mb-5em">Email</p>
+                <a href="mailto:&#115;&#116;&#117;&#100;&#105;&#111;&#64;&#120;&#97;&#118;&#105;&#111;&#45;&#100;&#101;&#115;&#105;&#103;&#110;&#46;&#99;&#111;&#109;" title="Email us" class="link">&#115;&#116;&#117;&#100;&#105;&#111;&#64;&#120;&#97;&#118;&#105;&#111;&#45;&#100;&#101;&#115;&#105;&#103;&#110;&#46;&#99;&#111;&#109;</a>
+                <p class="headline-6 mt-20em mb-5em">Social</p>
+                <ul class="social social--font-lg">
+                    <li class="social__item">
+                    <a class="social__link" href="https://www.instagram.com/xaviodesign/" title="Our Instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
+                    </li>
+                    <li class="social__item">
+                    <a class="social__link" href="https://www.linkedin.com/company/xavio-design" title="Our Linkedin" target="_blank" rel="noopener noreferrer">Linkedin</a>
+                    </li>
+                </ul>
+                </div>
+            </div>
+            </div>
+        </div>
+        </section>
+    </main>
+@endsection
