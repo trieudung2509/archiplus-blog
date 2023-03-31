@@ -13,4 +13,9 @@ class BlogCategory extends Model
     {
         return $this->hasMany(Blog::class,  'category_id', 'id');
     }
+
+    public function parent()
+    {
+        return $this->belongsTo('App\BlogCategory', 'parent_id');
+    }
 }
