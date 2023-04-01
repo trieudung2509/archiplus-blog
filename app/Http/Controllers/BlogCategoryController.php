@@ -18,7 +18,7 @@ class BlogCategoryController extends Controller
     {
         
         $sort_search =null;
-        $categories = BlogCategory::orderBy('category_name', 'asc');
+        $categories = BlogCategory::query()->orderBy('display_order', 'desc')->orderBy('id', 'desc');
 
         if ($request->has('search')){
             $sort_search = $request->search;

@@ -49,8 +49,8 @@
                 <th width="5%">#</th>
                     <th>{{translate('Name')}}</th>
                     <th>{{translate('Parent')}}</th>
+                    <th >{{ translate('Display Order') }}</th>
                     <th data-breakpoints="lg">{{ translate('Slug') }}</th>
-                    <th data-breakpoints="lg">{{ translate('Display Order') }}</th>
                     <th data-breakpoints="lg">{{ translate('Status') }}</th>
                     <th>{{translate('Blogs')}}</th>
                     <th>{{translate('Status')}}</th>
@@ -63,8 +63,8 @@
                     <td>{{ ($key+1) + ($categories->currentPage() - 1)*$categories->perPage() }}</td>
                     <td>{{ $category->category_name }}</td>
                     <td>{{ $category->parent_id ? $category->parent->category_name : '' }}</td>
-                    <td>{{ $category->slug }}</td>
                     <td>{{ $category->display_order }}</td>
+                    <td>{{ $category->slug }}</td>
                     <td>
                         <label class="aiz-switch aiz-switch-success mb-0">
                             <input type="checkbox" onchange="change_status(this)" value="{{ $category->id }}" <?php if($category->status == 1) echo "checked";?>>
