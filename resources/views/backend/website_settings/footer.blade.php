@@ -52,16 +52,7 @@
                                         {!! get_setting('about_us_description',null,$lang); !!}
                                     </textarea>
     							</div>
-                                <div class="form-group">
-                                    <label>{{ translate('Play Store Link') }}</label>
-                                    <input type="hidden" name="types[]" value="play_store_link">
-                                    <input type="text" class="form-control" placeholder="http://" name="play_store_link" value="{{ get_setting('play_store_link') }}">
-                                </div>
-                                <div class="form-group">
-                                    <label>{{ translate('App Store Link') }}</label>
-                                    <input type="hidden" name="types[]" value="app_store_link">
-                                    <input type="text" class="form-control" placeholder="http://" name="app_store_link" value="{{ get_setting('app_store_link') }}">
-                                </div>
+                                
     							<div class="text-right">
     								<button type="submit" class="btn btn-primary">{{ translate('Update') }}</button>
     							</div>
@@ -99,78 +90,6 @@
     					</div>
     				</div>
     			</div>
-                <div class="col-lg-12">
-                    <div class="card shadow-none bg-light">
-    					<div class="card-header">
-    						<h6 class="mb-0">{{ translate('Link Widget One') }}</h6>
-    					</div>
-    					<div class="card-body">
-                            <form action="{{ route('business_settings.update') }}" method="POST" enctype="multipart/form-data">
-                                @csrf
-    							<div class="form-group">
-    								<label>{{ translate('Title') }} ({{ translate('Translatable') }})</label>
-    								<input type="hidden" name="types[][{{ $lang }}]" value="widget_one">
-    								<input type="text" class="form-control" placeholder="Widget title" name="widget_one" value="{{ get_setting('widget_one',null,$lang) }}">
-    							</div>
-    			                <div class="form-group">
-    								<label>{{ translate('Links') }} - ({{ translate('Translatable') }} {{ translate('Label') }})</label>
-    								<div class="w3-links-target">
-    									<input type="hidden" name="types[][{{ $lang }}]" value="widget_one_labels">
-    									<input type="hidden" name="types[]" value="widget_one_links">
-    									@if (get_setting('widget_one_labels',null,$lang) != null)
-    										@foreach (json_decode(get_setting('widget_one_labels',null,$lang), true) as $key => $value)
-    											<div class="row gutters-5">
-    												<div class="col-4">
-    													<div class="form-group">
-    														<input type="text" class="form-control" placeholder="{{translate('Label')}}" name="widget_one_labels[]" value="{{ $value }}">
-    													</div>
-    												</div>
-    												<div class="col">
-    													<div class="form-group">
-    														<input type="text" class="form-control" placeholder="http://" name="widget_one_links[]" value="{{ json_decode(get_setting('widget_one_links'), true)[$key] }}">
-    													</div>
-    												</div>
-    												<div class="col-auto">
-    													<button type="button" class="mt-1 btn btn-icon btn-circle btn-sm btn-soft-danger" data-toggle="remove-parent" data-parent=".row">
-    														<i class="las la-times"></i>
-    													</button>
-    												</div>
-    											</div>
-    										@endforeach
-    									@endif
-    								</div>
-    								<button
-    									type="button"
-    									class="btn btn-soft-secondary btn-sm"
-    									data-toggle="add-more"
-    									data-content='<div class="row gutters-5">
-    										<div class="col-4">
-    											<div class="form-group">
-    												<input type="text" class="form-control" placeholder="{{translate('Label')}}" name="widget_one_labels[]">
-    											</div>
-    										</div>
-    										<div class="col">
-    											<div class="form-group">
-    												<input type="text" class="form-control" placeholder="http://" name="widget_one_links[]">
-    											</div>
-    										</div>
-    										<div class="col-auto">
-    											<button type="button" class="mt-1 btn btn-icon btn-circle btn-sm btn-soft-danger" data-toggle="remove-parent" data-parent=".row">
-    												<i class="las la-times"></i>
-    											</button>
-    										</div>
-    									</div>'
-    									data-target=".w3-links-target">
-    									{{ translate('Add New') }}
-    								</button>
-    							</div>
-    							<div class="text-right">
-    								<button type="submit" class="btn btn-primary">{{ translate('Update') }}</button>
-    							</div>
-    						</form>
-    					</div>
-    				</div>
-    			</div>
     		</div>
     	</div>
     </div>
@@ -182,20 +101,6 @@
         <form action="{{ route('business_settings.update') }}" method="POST" enctype="multipart/form-data">
             @csrf
            <div class="card-body">
-                <div class="card shadow-none bg-light">
-                    <div class="card-header">
-  						<h6 class="mb-0">{{ translate('Copyright Widget ') }}</h6>
-  					</div>
-                    <div class="card-body">
-                        <div class="form-group">
-                  			<label>{{ translate('Copyright Text') }} ({{ translate('Translatable') }})</label>
-                  			<input type="hidden" name="types[][{{ $lang }}]" value="frontend_copyright_text">
-                  			<textarea class="aiz-text-editor form-control" name="frontend_copyright_text" data-buttons='[["font", ["bold", "underline", "italic"]],["insert", ["link"]],["view", ["undo","redo"]]]' placeholder="Type.." data-min-height="150">
-                                {!! get_setting('frontend_copyright_text',null,$lang) !!}
-                            </textarea>
-                  		</div>
-                    </div>
-                </div>
                 <div class="card shadow-none bg-light">
                   <div class="card-header">
 						<h6 class="mb-0">{{ translate('Social Link Widget ') }}</h6>
@@ -249,26 +154,6 @@
                             <input type="text" class="form-control" placeholder="http://" name="linkedin_link" value="{{ get_setting('linkedin_link')}}">
                         </div>
                     </div>
-                  </div>
-                </div>
-                <div class="card shadow-none bg-light">
-                  <div class="card-header">
-        						<h6 class="mb-0">{{ translate('Payment Methods Widget ') }}</h6>
-        					</div>
-                  <div class="card-body">
-                      <div class="form-group">
-                          <label>{{ translate('Payment Methods') }}</label>
-                          <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
-                              <div class="input-group-prepend">
-                                  <div class="input-group-text bg-soft-secondary font-weight-medium">{{ translate('Browse')}}</div>
-                              </div>
-                              <div class="form-control file-amount">{{ translate('Choose File') }}</div>
-                              <input type="hidden" name="types[]" value="payment_method_images">
-                              <input type="hidden" name="payment_method_images" class="selected-files" value="{{ get_setting('payment_method_images')}}">
-                          </div>
-                          <div class="file-preview box sm">
-                          </div>
-                       </div>
                   </div>
                 </div>
 

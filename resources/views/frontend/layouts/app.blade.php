@@ -69,6 +69,45 @@
         height: 100%;
       }
     </style>
+    </head>
+    <body itemscope itemtype="http://schema.org/WebPage">
+      <div id="barba-wrapper">
+        <div class="barba-container">
+          <div class="l-navbar js-navbar-scroll ">
+            <div class="l-navbar__logo "><a class="l-navbar__logo-icon" href="/" title="Go to homepage"><span>Go to homepage</span>
+            <img src="{{ uploaded_asset(get_setting('header_logo')) }}" />
+          </a></div><button class="l-navbar__burger js-burger-btn custom-cursor" type="button" aria-label="menu"><span class="l-navbar__burger-text">Menu</span><span class="burger custom-cursor"><span class="burger-item burger-item--first"></span><span class="burger-item burger-item--second"></span></span></button>
+          </div>
+          <div class="l-navbar-mobile l-navbar-mobile--hide js-nav-mobile"><a href="/" title="Go to homepage"><img class="l-navbar-mobile__logo" src="/images/logo-mobile.svg" alt="Xavio Design"></a><button class="burger js-burger-btn custom-cursor" type="button" aria-label="menu"><span class="burger-item burger-item--first"></span><span class="burger-item burger-item--second"></span></button></div>
+          <nav class="l-menu-wrapper js-menu-wrapper hide">
+            <div class="container-large">
+              <div class="row row--no-gutters align-items-center l-menu">
+                <ul class="col-lg-11 offset-pad-lg-1 l-menu-left">
+                  <?php 
+                    $list_categories = \App\BlogCategory::where(['status' => 1, 'parent_id' => null])->get();
+                  ?>
+                  @foreach( $list_categories as $cate)
+                  <li class="l-menu-left__item"><a class="l-menu-left__link js-wordsplit" href="{{ route('news_page', ['slug' => $cate->slug]) }}" title="{{ $cate->category_name }}">{{ $cate->category_name }}</a></li>
+                  @endforeach
+                  <li class="l-menu-left__item"><a class="l-menu-left__link js-wordsplit" href="/about-us" title="About Us">Về chúng tôi</a></li>
+                  <li class="l-menu-left__item"><a class="l-menu-left__link js-wordsplit" href="/contact" title="Contact">Liên Hệ</a></li>
+                </ul>
+                <div class="l-menu-right">
+                  <p class="headline-6 mb-5em">Address</p>
+                  <address class="address">
+                    <p><span>{{ get_setting('contact_address',null,'en') }}</span><br></p>
+                  </address>
+                  <p class="headline-6 mt-20em mb-5em">Telephone</p><a href="tel:{{ get_setting('contact_phone') }}" title="Call us"> {{ get_setting('contact_phone') }} </a>
+                  <p class="headline-6 mt-20em mb-5em">Email</p><a href="mailto:{{ get_setting('contact_email') }}" title="Email us"> {{ get_setting('contact_email') }} </a>
+                  <p class="headline-6 mt-20em mb-5em">Social</p>
+                  <ul class="social">
+                    <li class="social__item"><a class="social__link" href="{{ get_setting('facebook_link')}}" title="Our Instagram" target="_blank" rel="noopener noreferrer"> Facebook </a></li>
+                    <!-- <li class="social__item"><a class="social__link" href="https://www.linkedin.com/company/xavio-design" title="Our Linkedin" target="_blank" rel="noopener noreferrer"> Linkedin </a></li> -->
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
     @include('frontend.layouts.header')
     @yield('content')
     @include('frontend.layouts.footer') 

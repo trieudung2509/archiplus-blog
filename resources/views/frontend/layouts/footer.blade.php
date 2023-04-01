@@ -3,15 +3,13 @@
     <div class="l-footer__row">
       <div class="l-footer__col l-footer__col--flex l-footer__col--border-gold text-center js-footer-block">
         <a class="l-footer__logo" href="/" title="Xavio Design" aria-label="Xavio Design">
-          <img class="l-footer__logo-icon" src="/images/logo-white.svg" alt="Xavio Design">
+          <img class="l-footer__logo-icon" src="{{ uploaded_asset(get_setting('footer_logo')) }}" alt="Archiplus Design" />
         </a>
         <ul class="social mt-10em">
-          <li class="social__item">
-            <a class="social__link" href="https://www.instagram.com/xaviodesign/" title="Our Instagram" target="_blank" rel="noopener noreferrer"> Instagram </a>
-          </li>
-          <li class="social__item">
+          <li class="social__item"><a class="social__link" href="{{ get_setting('facebook_link') }}" title="Our Facebook" target="_blank" rel="noopener noreferrer"> Facebook </a></li>
+          <!-- <li class="social__item">
             <a class="social__link" href="https://www.linkedin.com/company/xavio-design" title="Our Linkedin" target="_blank" rel="noopener noreferrer"> Linkedin </a>
-          </li>
+          </li> -->
         </ul>
         <div class="l-footer__bp">
           <span>Designed by</span>
@@ -20,23 +18,19 @@
       </div>
       <div class="l-footer__col l-footer__col--menu js-footer-block">
         <ul class="l-footer__menu">
+          <?php 
+            $list_categories = \App\BlogCategory::where(['status' => 1, 'parent_id' => null])->get();
+          ?>
+          @foreach( $list_categories as $cate)
           <li class="l-footer__menu-item">
-            <a class="l-footer__menu-link" href="/portfolio" title="Portfolio">Portfolio </a>
+            <a class="l-footer__menu-link" href="{{ route('news_page', ['slug' => $cate->slug]) }}" title="News">{{ $cate->category_name; }}</a>
+          </li>
+          @endforeach
+          <li class="l-footer__menu-item">
+            <a class="l-footer__menu-link" href="/contact" title="Liên Hệ">Liên Hệ </a>
           </li>
           <li class="l-footer__menu-item">
-            <a class="l-footer__menu-link" href="/news" title="News">News </a>
-          </li>
-          <li class="l-footer__menu-item">
-            <a class="l-footer__menu-link" href="/what-we-do" title="What we do">What we do </a>
-          </li>
-          <li class="l-footer__menu-item">
-            <a class="l-footer__menu-link" href="/contact" title="Contact">Contact </a>
-          </li>
-          <li class="l-footer__menu-item">
-            <a class="l-footer__menu-link" href="/about-us" title="About">About </a>
-          </li>
-          <li class="l-footer__menu-item">
-            <a class="l-footer__menu-link" href="/careers" title="Careers">Careers </a>
+            <a class="l-footer__menu-link" href="/about-us" title="Về chúng tôi">Về chúng tôi</a>
           </li>
         </ul>
       </div>

@@ -376,6 +376,9 @@ img {
     background-repeat: no-repeat;
     overflow: hidden;
   }
+  .l-header__logo-icon img {
+    width: 60%;
+  }
   @media all and (max-width: 991px) {
     .l-navbar__logo-icon,
     .l-header__logo-icon {
@@ -593,7 +596,7 @@ img {
     position: relative;
     margin-right: auto;
     margin-left: auto;
-    width: 90%;
+    max-width: 865px;
   }
   @media all and (max-width: 1200px) {
     .l-header__container {
@@ -989,6 +992,7 @@ img {
   }
   .l-footer__logo img {
     pointer-events: none;
+    width: 75%;
   }
   .l-footer--link {
     display: block;

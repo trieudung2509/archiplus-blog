@@ -32,8 +32,8 @@ Route::get('/contact', 'ContactController@contact_page')->name('contact_page');
 Route::get('/about-us', 'AboutUsController@about_page')->name('about_page');
 
 // news
-Route::get('/news', 'NewController@news_page')->name('news_page');
-Route::get('/news/{slug', 'NewController@detail_page')->name('detail_page');
+Route::get('/category/{slug}', 'NewController@news_page')->name('news_page');
+Route::get('/news/{slug}`', 'NewController@detail_page')->name('detail_page');
 
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 //Blog Section

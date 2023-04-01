@@ -67,26 +67,22 @@
             </div>
             <div class="col-xl-4 offset-xl-2 col-lg-5 offset-lg-1">
                 <div class="box box--padded box--bordered text-center">
-                <p class="headline-6 mb-5em"> Berkeley Square Client Office </p>
+                <p class="headline-6 mb-5em"> Address </p>
                 <div class="content mb-20em">
-                    <p>2nd Floor Berkeley Square House, Berkeley Square, London W1J 6BD</p>
-                </div>
-                <p class="headline-6 mb-5em"> Country Design Studio </p>
-                <div class="content">
-                    <p>Lechtal House, Borovere Business Park, Borovere Lane, Alton GU34 1FH</p>
+                    <p>{{ get_setting('contact_address',null,'en') }}</p>
                 </div>
                 <p class="headline-6 mt-20em mb-5em">Telephone</p>
-                <a href="tel:4402033010077" title="Call us" class="link">+44 (0)203 301 0077</a>
+                <a href="tel:{{ get_setting('contact_phone') }}" title="Call us" class="link">{{ get_setting('contact_phone') }}</a>
                 <p class="headline-6 mt-20em mb-5em">Email</p>
-                <a href="mailto:&#115;&#116;&#117;&#100;&#105;&#111;&#64;&#120;&#97;&#118;&#105;&#111;&#45;&#100;&#101;&#115;&#105;&#103;&#110;&#46;&#99;&#111;&#109;" title="Email us" class="link">&#115;&#116;&#117;&#100;&#105;&#111;&#64;&#120;&#97;&#118;&#105;&#111;&#45;&#100;&#101;&#115;&#105;&#103;&#110;&#46;&#99;&#111;&#109;</a>
+                <a href="mailto:{{ get_setting('contact_email') }}" title="Email us" class="link">{{ get_setting('contact_email') }}</a>
                 <p class="headline-6 mt-20em mb-5em">Social</p>
                 <ul class="social social--font-lg">
                     <li class="social__item">
-                    <a class="social__link" href="https://www.instagram.com/xaviodesign/" title="Our Instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
+                    <a class="social__link" href="{{ get_setting('facebook_link') }}" title="Our Facebook" target="_blank" rel="noopener noreferrer">Facebook</a>
                     </li>
-                    <li class="social__item">
+                    <!-- <li class="social__item">
                     <a class="social__link" href="https://www.linkedin.com/company/xavio-design" title="Our Linkedin" target="_blank" rel="noopener noreferrer">Linkedin</a>
-                    </li>
+                    </li> -->
                 </ul>
                 </div>
             </div>
