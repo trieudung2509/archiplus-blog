@@ -58,6 +58,7 @@ class BlogCategoryController extends Controller
         $category->slug = Str::slug($request->category_name, '-');
         $category->display_order =  $request->display_order != null ? $request->display_order : 0;
         $category->description = $request->description;
+        $category->short_description = $request->short_description;
         $category->parent_id = $request->parent_id != 0 ? $request->parent_id : null;
         $category->meta_title = $request->meta_title;
         $category->meta_img = $request->meta_img;
@@ -115,6 +116,7 @@ class BlogCategoryController extends Controller
         $category->slug = Str::slug($request->category_name, '-');
         $category->display_order =  $request->display_order != null ? $request->display_order : 0;
         $category->description = $request->description;
+        $category->short_description = $request->short_description;
         $category->parent_id = $request->parent_id != 0 ? $request->parent_id : null;
         $category->meta_title = $request->meta_title;
         $category->meta_img = $request->meta_img;

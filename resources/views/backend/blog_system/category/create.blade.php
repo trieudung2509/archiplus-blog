@@ -49,6 +49,12 @@
                             <textarea name="description" rows="6" class="form-control" ></textarea>
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label">{{translate('Short Description')}}</label>
+                        <div class="col-md-9">
+                            <textarea name="short_description" rows="6" class="form-control" ></textarea>
+                        </div>
+                    </div>
 
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label">{{translate('Meta Title')}}</label>
