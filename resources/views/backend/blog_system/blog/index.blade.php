@@ -105,6 +105,7 @@
                         <th>{{translate('Title')}}</th>
                         <th data-breakpoints="md" style="width: 15%">{{translate('Category')}}</th>
                         <th data-breakpoints="xs">{{translate('Status')}}</th>
+                        <th data-breakpoints="xs">{{translate('Is Home Page')}}</th>
                         <th data-breakpoints="sm">{{translate('Published date')}}</th>
                         <th data-breakpoints="sm">{{translate('Author')}}</th>
                         <th data-breakpoints="sm">{{translate('Last edited by')}}</th>
@@ -134,6 +135,13 @@
                             <label class="aiz-switch aiz-switch-success mb-0">
                                 <input type="checkbox" onchange="change_status(this)"
                                        value="{{ $blog->id }}" <?php if ($blog->status == 1) echo "checked";?>>
+                                <span></span>
+                            </label>
+                        </td>
+                        <td>
+                            <label class="aiz-switch aiz-switch-success mb-0">
+                                <input type="checkbox" onchange="change_home_page_status(this)"
+                                       value="{{ $blog->id }}" <?php if ($blog->is_home_page == 1) echo "checked";?>>
                                 <span></span>
                             </label>
                         </td>
@@ -191,6 +199,21 @@
             $.post('{{ route('blog.change-status') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
                 if(data == 1){
                     AIZ.plugins.notify('success', '{{ translate('Change blog status successfully') }}');
+                }
+                else{
+                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                }
+            });
+        }
+
+        function change_home_page_status(el){
+            var status = 0;
+            if(el.checked){
+                var status = 1;
+            }
+            $.post('{{ route('blog.change-home-page-status') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
+                if(data == 1){
+                    AIZ.plugins.notify('success', '{{ translate('Change blog status home page successfully') }}');
                 }
                 else{
                     AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
