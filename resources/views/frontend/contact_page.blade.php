@@ -13,7 +13,8 @@
             <div class="row">
             <div class="col-lg-6">
                 <div class="content mb-20em"></div>
-                <form id="form_builder_2a4582f4e13ab499fa90a0348a27ff91" name="Contact form" class=" form  form--two-column  " onsubmit="return App.submitForm({form: this, url: '/ajax/sendForm'});">
+                <form id="form_builder_2a4582f4e13ab499fa90a0348a27ff91" name="Contact form" class=" form form--two-column" method="post" action="{{ route('contact.save') }}">
+                    {{ csrf_field() }}
                 <div class="form__group mb-20em ">
                     <input data-form-id="form_builder_2a4582f4e13ab499fa90a0348a27ff91" type="text" class="js-form-builder-field form__input" name="first_name" id="bp51320d78e8be5a11a8a2cafcec492aae" required>
                     <label class="form__label" for="bp51320d78e8be5a11a8a2cafcec492aae"> First Name </label>
@@ -23,11 +24,11 @@
                     <label class="form__label" for="bp6728c0f6ed50c1f4559285c3b91e3a5a"> Last Name </label>
                 </div>
                 <div class="form__group mb-20em ">
-                    <input data-form-id="form_builder_2a4582f4e13ab499fa90a0348a27ff91" type="text" class="js-form-builder-field form__input" name="contact_number" id="bp53463950ddeb97d4a23f3134eccd1ffc" required>
+                    <input data-form-id="form_builder_2a4582f4e13ab499fa90a0348a27ff91" type="text" class="js-form-builder-field form__input" name="phone_number" id="bp53463950ddeb97d4a23f3134eccd1ffc" required>
                     <label class="form__label" for="bp53463950ddeb97d4a23f3134eccd1ffc"> Contact number </label>
                 </div>
                 <div class="form__group mb-20em ">
-                    <input data-form-id="form_builder_2a4582f4e13ab499fa90a0348a27ff91" type="email" class="js-form-builder-field form__input" name="email_address" id="bpfc99e52247f95c7490355f9351c5d4e5" required>
+                    <input data-form-id="form_builder_2a4582f4e13ab499fa90a0348a27ff91" type="email" class="js-form-builder-field form__input" name="email" id="bpfc99e52247f95c7490355f9351c5d4e5" required>
                     <label class="form__label" for="bpfc99e52247f95c7490355f9351c5d4e5"> Email Address </label>
                 </div>
                 <div class="form__group mb-20em form__group--full-width">
