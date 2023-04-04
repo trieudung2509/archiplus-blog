@@ -35,13 +35,13 @@
         </ul>
       </div>
       <div class="l-footer__col l-footer__col--contact-info text-center js-footer-block">
-        <p class="headline-6 mb-5em">Address</p>
+        <p class="headline-6 mb-5em">ĐỊA CHỈ</p>
         <address class="address">
           <p>
             <span>{{ get_setting('contact_address',null,'en') }}</span>
           </p>
         </address>
-        <p class="headline-6 mt-10em mb-5em">Telephone</p>
+        <p class="headline-6 mt-10em mb-5em">ĐIỆN THOẠI</p>
         <a href="tel:{{ get_setting('contact_phone') }}" title="Call us">{{ get_setting('contact_phone') }}</a>
         <p class="headline-6 mt-10em mb-5em">Email</p>
         <a href="mailto:{{ get_setting('contact_email') }}" title="Email us"> {{ get_setting('contact_email') }}</a>

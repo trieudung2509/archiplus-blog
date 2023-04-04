@@ -26,7 +26,7 @@
         var s = d.createElement("script");
         s.async = true;
         var v = !("IntersectionObserver" in w) ? "lazyloadPolyfill.js" : "lazyloadIntersectionObserver.js";
-        s.src = "/scripts/" + v;
+        s.src = "/public/assets/scripts/" + v;
         w.lazyLoadOptions = {
           elements_selector: ".lazy",
           threshold: 0,
@@ -75,10 +75,10 @@
         <div class="barba-container">
           <div class="l-navbar js-navbar-scroll ">
             <div class="l-navbar__logo "><a class="l-navbar__logo-icon" href="/" title="Go to homepage"><span>Go to homepage</span>
-            <img src="{{ uploaded_asset(get_setting('header_logo')) }}" />
+            <img src="{{ uploaded_asset(get_setting('header_logo')) }}" style="width: 75%;" />
           </a></div><button class="l-navbar__burger js-burger-btn custom-cursor" type="button" aria-label="menu"><span class="l-navbar__burger-text">Menu</span><span class="burger custom-cursor"><span class="burger-item burger-item--first"></span><span class="burger-item burger-item--second"></span></span></button>
           </div>
-          <div class="l-navbar-mobile l-navbar-mobile--hide js-nav-mobile"><a href="/" title="Go to homepage"><img class="l-navbar-mobile__logo" src="/images/logo-mobile.svg" alt="Xavio Design"></a><button class="burger js-burger-btn custom-cursor" type="button" aria-label="menu"><span class="burger-item burger-item--first"></span><span class="burger-item burger-item--second"></span></button></div>
+          <div class="l-navbar-mobile l-navbar-mobile--hide js-nav-mobile"><a href="/" title="Go to homepage"><img class="l-navbar-mobile__logo" src="{{ uploaded_asset(get_setting('header_logo')) }}" alt="Archiplus Design"></a><button class="burger js-burger-btn custom-cursor" type="button" aria-label="menu"><span class="burger-item burger-item--first"></span><span class="burger-item burger-item--second"></span></button></div>
           <nav class="l-menu-wrapper js-menu-wrapper hide">
             <div class="container-large">
               <div class="row row--no-gutters align-items-center l-menu">
@@ -93,11 +93,11 @@
                   <li class="l-menu-left__item"><a class="l-menu-left__link js-wordsplit" href="/contact" title="Contact">Liên Hệ</a></li>
                 </ul>
                 <div class="l-menu-right">
-                  <p class="headline-6 mb-5em">Address</p>
+                  <p class="headline-6 mb-5em">ĐỊA CHỈ</p>
                   <address class="address">
                     <p><span>{{ get_setting('contact_address',null,'en') }}</span><br></p>
                   </address>
-                  <p class="headline-6 mt-20em mb-5em">Telephone</p><a href="tel:{{ get_setting('contact_phone') }}" title="Call us"> {{ get_setting('contact_phone') }} </a>
+                  <p class="headline-6 mt-20em mb-5em">ĐIỆN THOẠI</p><a href="tel:{{ get_setting('contact_phone') }}" title="Call us"> {{ get_setting('contact_phone') }} </a>
                   <p class="headline-6 mt-20em mb-5em">Email</p><a href="mailto:{{ get_setting('contact_email') }}" title="Email us"> {{ get_setting('contact_email') }} </a>
                   <p class="headline-6 mt-20em mb-5em">Social</p>
                   <ul class="social">
@@ -114,5 +114,6 @@
     <div class="cursor" id="cursor"></div>
     <script src="{{ static_asset('assets/frontend/js/vendor.js') }}"></script>
     <script src="{{ static_asset('assets/frontend/js/app.js') }}"></script>
+    @yield('script')
 </body>
 </html>

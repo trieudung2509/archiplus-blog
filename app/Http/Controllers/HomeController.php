@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Category;
-use App\Product;
-use Cache;
+use App\BlogCategory;
+use App\Blog;
 
 class HomeController extends Controller
 {
@@ -16,6 +14,10 @@ class HomeController extends Controller
      */
     public function home_page()
     {
-        return view('frontend.home_page');
+        $category_posts  = [];
+
+        $list_categories = BlogCategory::Where(['status' => 1])->select('id', 'category_name', 'slug')->get();
+
+        return view('frontend.home_page', compact('list_categories'));
     }
 }

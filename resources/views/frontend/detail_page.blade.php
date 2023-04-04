@@ -12,7 +12,7 @@
             <header class="l-header text-center l-header--mt-lg content">
               <div class="l-header__container container-super-narrow mb-30em">
                 <h1 class="headline-2 letters js-wordsplit text-center">{{ $post->title }}</h1>
-                <time class="l-header__time" datetime="{{ Carbon\Carbon::parse($post->created_at, 'UTC')->setTimezone('Asia/Bangkok')->locale('vi')->diffForHumans() }}">{{ Carbon\Carbon::parse($post->created_at, 'UTC')->setTimezone('Asia/Bangkok')->locale('vi')->diffForHumans() }}</time>
+                <time class="l-header__time" datetime="{{ utcToLocalTime($post->published_date) }}">{{ utcToLocalTime($post->published_date) }}</time>
               </div>
               <style>
                 @media screen and (max-width:499px) {
