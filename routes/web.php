@@ -27,7 +27,7 @@ Route::get('/', 'HomeController@home_page')->name('home');
 
 // contact 
 Route::get('/contact', 'ContactController@contact_page')->name('contact_page');
-Route::post('/save-contact', 'SubscriberController@save_subscriber')->name('contact.save');
+Route::post('/save-contact', 'ContactController@save_subscriber')->name('contact.save');
 
 
 // about us page

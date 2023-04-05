@@ -95,16 +95,4 @@ class SubscriberController extends Controller
         flash(translate('Subscriber has been deleted successfully'))->success();
         return redirect()->route('subscribers.index');
     }
-
-    public function save_subscriber(Request $request) {
-        $sub = new Subscriber();
-        $sub->fill($request->all());
-        $sub->save();
-        if($request->hasFile('file')){
-            
-        }
-        
-        flash(translate('You have subscribed successfully'))->success();
-        return view("frontend.contact_page");
-    }
 }

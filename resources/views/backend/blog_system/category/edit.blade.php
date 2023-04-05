@@ -49,12 +49,12 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <!-- <div class="form-group row">
                         <label class="col-md-3 col-form-label">{{translate('Description')}}</label>
                         <div class="col-md-9">
                             <textarea name="description" rows="6" class="form-control">{{ $cateogry->description }}</textarea>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label">{{translate('Short Description')}}</label>
                         <div class="col-md-9">

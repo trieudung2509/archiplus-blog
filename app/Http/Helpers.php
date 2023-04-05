@@ -371,7 +371,7 @@ if (!function_exists('get_categories')) {
                 
                 unset($categories[$key]);
                 
-                get_categories($categories, $item['id'], $char.'|---', $result);
+                get_categories($categories, $item['id'], $char.'--- ', $result);
             }
         }
         return $result;

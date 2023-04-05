@@ -11,11 +11,11 @@ class NewController extends Controller
 {
     // FE
     public function news_page($slug) {
-        $first_category =  BlogCategory::Where('slug', $slug)->select('id', 'category_name', 'parent_id')->first();
+        $first_category =  BlogCategory::Where('slug', $slug)->select('id', 'category_name', 'parent_id', 'short_description')->first();
         $categoryId = $first_category->id;
         $title = $first_category->category_name;
         $parent_id = $first_category->parent_id;
-        $description = '';
+        $description = $first_category->short_description;
         $list_posts = Blog::Where(['category_id' => $categoryId, 'status' => 1])->orderBy('published_date', 'DESC')
                             ->select('id','title','slug', 'short_description', 'published_date', 'banner')->paginate(6);
         
