@@ -95,23 +95,4 @@ class SubscriberController extends Controller
         flash(translate('Subscriber has been deleted successfully'))->success();
         return redirect()->route('subscribers.index');
     }
-
-    public function save_subscriber(Request $request) {
-        $sub = new Subscriber();
-        $sub->fill($request->all());
-        $sub->save();
-        try {
-            if($request->hasFile('aiz_file')){
-                $upload = new AizUploadController();
-                $id = $upload->upload($request, true);
-            }
-        } catch (\Exception $e) {
-            return $e->getMessage();
-        }
-        $sub->file = $id;
-        $sub->save();
-
-        flash(translate('You have subscribed successfully'))->success();
-        return view("frontend.contact_page");
-    }
 }

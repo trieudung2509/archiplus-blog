@@ -27,10 +27,10 @@
           </li>
           @endforeach
           <li class="l-footer__menu-item">
-            <a class="l-footer__menu-link" href="/contact" title="Liên Hệ">Liên Hệ </a>
+            <a class="l-footer__menu-link" href="/about-us" title="Về chúng tôi">Về chúng tôi</a>
           </li>
           <li class="l-footer__menu-item">
-            <a class="l-footer__menu-link" href="/about-us" title="Về chúng tôi">Về chúng tôi</a>
+            <a class="l-footer__menu-link" href="/contact" title="Liên Hệ">Liên Hệ </a>
           </li>
         </ul>
       </div>

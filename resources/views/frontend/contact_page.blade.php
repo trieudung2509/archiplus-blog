@@ -13,8 +13,8 @@
             <div class="row">
             <div class="col-lg-6">
                 <div class="content mb-20em"></div>
-                <form id="form_builder_2a4582f4e13ab499fa90a0348a27ff91" name="Contact form" class=" form  form--two-column  " onsubmit="return App.submitForm({form: this, url: '{{ route('contact.save') }}'});" method="post" action="{{ route('contact.save') }}" enctype="multipart/form-data">
-                    {{ csrf_field() }}
+                <form id="form_builder_2a4582f4e13ab499fa90a0348a27ff91" name="Contact form" class=" form form--two-column" onsubmit="return App.submitForm({form: this, url: '{{ route('contact.save') }}'});">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                 <div class="form__group mb-20em ">
                     <input data-form-id="form_builder_2a4582f4e13ab499fa90a0348a27ff91" type="text" class="js-form-builder-field form__input" name="first_name" id="bp51320d78e8be5a11a8a2cafcec492aae" required>
                     <label class="form__label" for="bp51320d78e8be5a11a8a2cafcec492aae"> First Name </label>
@@ -35,23 +35,18 @@
                     <textarea data-form-id="form_builder_2a4582f4e13ab499fa90a0348a27ff91" class="js-form-builder-field form__textarea" name="message" id="bpec53508f6423d39f4a7e6aa7a2c89570"></textarea>
                     <label class="form__label" for="bpec53508f6423d39f4a7e6aa7a2c89570"> Message </label>
                 </div>
-                <input type="hidden" name="form_gen_id" value="2a4582f4e13ab499fa90a0348a27ff91">
-                <input type="hidden" value="1" name="form_id">
-                <input type="hidden" value="contact" name="page_slug">
-                <input type="hidden" value="23" name="page_id">
-                <input type="hidden" name="recaptcha">
                 <div class="form__group form__group--full-width">
                     <div class="checkbox__container">
-                    <input class="checkbox" type="checkbox" name="consent" id="consent-c2" required>
+                    <input class="checkbox" type="checkbox" name="consent" id="consent-c2">
                     <label class="checkbox__label" for="consent-c2">
                         <span class="half-opacity">By checking this box, you agree to be contacted via phone and email regarding your interest in our products and services. We will treat your data in accordance with our <a href="">privacy policy</a>. </span>
                     </label>
                     </div>
                 </div>
-                <div class="form__row form__row--with-dropzone">
+                <div class="form__row">
                     <div class="form__row__left">
                     <div class="form__group">
-                        <input type="file" name="aiz_file" id="file" class="inputfile">
+                        <input type="file" name="file" id="file" class="inputfile">
                         <label class="btn btn--file" for="file">
                         <span class="btn__inner"> Choose a file </span>
                         </label>
