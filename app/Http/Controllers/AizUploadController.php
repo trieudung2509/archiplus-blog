@@ -62,7 +62,7 @@ class AizUploadController extends Controller
     public function show_uploader(Request $request){
         return view('uploader.aiz-uploader');
     }
-    public function upload(Request $request){
+    public function upload(Request $request, $return_name_flag = false){
         $type = array(
             "jpg"=>"image",
             "jpeg"=>"image",
@@ -168,6 +168,9 @@ class AizUploadController extends Controller
                 $upload->type = $type[$upload->extension];
                 $upload->file_size = $size;
                 $upload->save();
+                if ($return_name_flag) {
+                    return $path;
+                }
             }
             return '{}';
         }

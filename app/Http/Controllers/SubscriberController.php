@@ -100,10 +100,17 @@ class SubscriberController extends Controller
         $sub = new Subscriber();
         $sub->fill($request->all());
         $sub->save();
-        if($request->hasFile('file')){
-            
+        try {
+            if($request->hasFile('aiz_file')){
+                $upload = new AizUploadController();
+                $name = $upload->upload($request, true);
+            }
+        } catch (\Exception $e) {
+            return $e->getMessage();
         }
-        
+        $sub->file_name = $name;
+        $sub->save();
+
         flash(translate('You have subscribed successfully'))->success();
         return view("frontend.contact_page");
     }

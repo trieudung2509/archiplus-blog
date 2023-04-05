@@ -13,7 +13,7 @@
             <div class="row">
             <div class="col-lg-6">
                 <div class="content mb-20em"></div>
-                <form id="form_builder_2a4582f4e13ab499fa90a0348a27ff91" name="Contact form" class=" form form--two-column" method="post" action="{{ route('contact.save') }}">
+                <form id="form_builder_2a4582f4e13ab499fa90a0348a27ff91" name="Contact form" class=" form  form--two-column  " onsubmit="return App.submitForm({form: this, url: '{{ route('contact.save') }}'});" method="post" action="{{ route('contact.save') }}" enctype="multipart/form-data">
                     {{ csrf_field() }}
                 <div class="form__group mb-20em ">
                     <input data-form-id="form_builder_2a4582f4e13ab499fa90a0348a27ff91" type="text" class="js-form-builder-field form__input" name="first_name" id="bp51320d78e8be5a11a8a2cafcec492aae" required>
@@ -51,7 +51,7 @@
                 <div class="form__row form__row--with-dropzone">
                     <div class="form__row__left">
                     <div class="form__group">
-                        <input type="file" name="file" id="file" class="inputfile">
+                        <input type="file" name="aiz_file" id="file" class="inputfile">
                         <label class="btn btn--file" for="file">
                         <span class="btn__inner"> Choose a file </span>
                         </label>
