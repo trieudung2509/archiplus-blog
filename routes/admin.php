@@ -92,5 +92,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     Route::resource('/uploaded-files', 'AizUploadController');
     Route::get('/uploaded-files/destroy/{id}', 'AizUploadController@destroy')->name('uploaded-files.destroy');
 
+    Route::post('/save-post-image', 'BlogController@save_blog_image')->name('images.upload');
     Route::get('/all-notification', 'NotificationController@index')->name('admin.all-notification');
 });
