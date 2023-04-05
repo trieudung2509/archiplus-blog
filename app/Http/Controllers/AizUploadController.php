@@ -169,7 +169,7 @@ class AizUploadController extends Controller
                 $upload->file_size = $size;
                 $upload->save();
                 if ($return_name_flag) {
-                    return $path;
+                    return $upload->id;
                 }
             }
             return '{}';

@@ -103,12 +103,12 @@ class SubscriberController extends Controller
         try {
             if($request->hasFile('aiz_file')){
                 $upload = new AizUploadController();
-                $name = $upload->upload($request, true);
+                $id = $upload->upload($request, true);
             }
         } catch (\Exception $e) {
             return $e->getMessage();
         }
-        $sub->file_name = $name;
+        $sub->file = $id;
         $sub->save();
 
         flash(translate('You have subscribed successfully'))->success();

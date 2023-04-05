@@ -14,7 +14,7 @@ class AddPaidToSubscribersTable extends Migration
     public function up()
     {
         Schema::table('subscribers', function (Blueprint $table) {
-            $table->string("file_name", 50);
+            $table->integer("file")->nullable();
         });
     }
 
@@ -26,7 +26,7 @@ class AddPaidToSubscribersTable extends Migration
     public function down()
     {
         Schema::table('subscribers', function (Blueprint $table) {
-            $table->dropColumn('file_name');
+            $table->dropColumn('file');
         });
     }
 }
