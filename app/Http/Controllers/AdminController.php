@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Blog;
 use Illuminate\Http\Request;
-use App\Category;
-use App\Product;
-use Cache;
 
 class AdminController extends Controller
 {
@@ -16,7 +14,7 @@ class AdminController extends Controller
      */
     public function admin_dashboard(Request $request)
     {
-
-        return view('backend.dashboard');
+        $list_posts = Blog::where('status', 1)->orderBy('published_date', 'desc')->paginate(15);
+        return view('backend.dashboard', compact('list_posts'));
     }
 }

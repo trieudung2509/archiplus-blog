@@ -12,7 +12,7 @@
             <header class="l-header text-center l-header--mt-lg content">
               <div class="l-header__container container-super-narrow mb-30em">
                 <h1 class="headline-2 letters js-wordsplit text-center">{{ $post->title }}</h1>
-                <time class="l-header__time" datetime="{{ utcToLocalTime($post->published_date) }}">{{ utcToLocalTime($post->published_date) }}</time>
+                <time class="l-header__time" datetime="{{ utcToLocalTime($post->published_date) }}">{{ utcToLocalTime($post->published_date)->toDateString() }}</time>
               </div>
               <style>
                 @media screen and (max-width:499px) {
