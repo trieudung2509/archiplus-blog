@@ -260,14 +260,6 @@ class BlogController extends Controller
         return 1;
     }
 
-    public function change_home_page_status(Request $request) {
-        $blog = Blog::find($request->id);
-        $blog->is_home_page = $request->status;
-        
-        $blog->save();
-        return 1;
-    }
-
     /**
      * Remove the specified resource from storage.
      *
