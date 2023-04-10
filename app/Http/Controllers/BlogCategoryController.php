@@ -150,4 +150,12 @@ class BlogCategoryController extends Controller
         $category->save();
         return 1;
     }
+
+    public function change_home_page_status(Request $request) {
+        $cateblog = BlogCategory::find($request->id);
+        $cateblog->is_home_page = $request->status;
+        
+        $cateblog->save();
+        return 1;
+    }
 }
