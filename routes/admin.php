@@ -79,7 +79,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     Route::resource('blog', 'BlogController');
     Route::get('/blog/destroy/{id}', 'BlogController@destroy')->name('blog.destroy');
     Route::post('/blog/change-status', 'BlogController@change_status')->name('blog.change-status');
-    Route::post('/blog/change-home-page-status', 'BlogController@change_home_page_status')->name('blog.change-home-page-status');
+    Route::post('/blog-category/change-home-page-status', 'BlogCategoryController@change_home_page_status')->name('blog-category.change-home-page-status');
     
 
     // Route::resource('pages', 'PageController');
@@ -92,5 +92,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     Route::resource('/uploaded-files', 'AizUploadController');
     Route::get('/uploaded-files/destroy/{id}', 'AizUploadController@destroy')->name('uploaded-files.destroy');
 
+    Route::post('/save-post-image', 'BlogController@save_blog_image')->name('images.upload');
     Route::get('/all-notification', 'NotificationController@index')->name('admin.all-notification');
 });
