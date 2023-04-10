@@ -50,6 +50,7 @@
                     <th>{{translate('Name')}}</th>
                     <th>{{translate('Parent')}}</th>
                     <th >{{ translate('Display Order') }}</th>
+                    <th data-breakpoints="xs">{{translate('Is Home Page')}}</th>
                     <th data-breakpoints="lg">{{ translate('Slug') }}</th>
                     <th data-breakpoints="lg">{{ translate('Status') }}</th>
                     <th>{{translate('Blogs')}}</th>
@@ -64,6 +65,13 @@
                     <td>{{ $category->category_name }}</td>
                     <td>{{ $category->parent_id ? $category->parent->category_name : '' }}</td>
                     <td>{{ $category->display_order }}</td>
+                    <td>
+                        <label class="aiz-switch aiz-switch-success mb-0">
+                            <input type="checkbox" onchange="change_home_page_status(this)"
+                                   value="{{ $category->id }}" <?php if ($category->is_home_page == 1) echo "checked";?>>
+                            <span></span>
+                        </label>
+                    </td>
                     <td>{{ $category->slug }}</td>
                     <td>
                         <label class="aiz-switch aiz-switch-success mb-0">
@@ -111,6 +119,21 @@
             }
         });
     }
+
+    function change_home_page_status(el){
+            var status = 0;
+            if(el.checked){
+                var status = 1;
+            }
+            $.post('{{ route('blog-category.change-home-page-status') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
+                if(data == 1){
+                    AIZ.plugins.notify('success', '{{ translate('Change status home page successfully') }}');
+                }
+                else{
+                    AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');
+                }
+            });
+        }
 </script>
 @endsection
 
