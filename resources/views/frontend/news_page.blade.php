@@ -44,7 +44,7 @@
                   </div>
                   <div class="tile__content content">
                     <h2 class="headline-5">{{ $post->title }}</h2>
-                    <time datetime="{{ utcToLocalTime($post->published_date) }}"> {{ utcToLocalTime($post->published_date) }}</time>
+                    <time datetime="{{ utcToLocalTime($post->published_date) }}"> {{ utcToLocalTime($post->published_date)->toDateString() }}</time>
                     <p class="content__small-text">{{ $post->short_description }}</p>
                   </div>
                 </a>
