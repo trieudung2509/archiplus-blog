@@ -1233,6 +1233,7 @@ img {
   .l-menu-right a {
     letter-spacing: 0.2em;
     color: #fff;
+    word-wrap: break-word;
   }
   .l-menu__navbar {
     -webkit-justify-content: center;

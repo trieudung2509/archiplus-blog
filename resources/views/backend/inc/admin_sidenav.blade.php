@@ -2,8 +2,8 @@
     <div class="aiz-sidebar left c-scrollbar">
         <div class="aiz-side-nav-logo-wrap">
             <a href="{{ route('admin.dashboard') }}" class="d-block text-left">
-                @if(get_setting('system_logo_white') != null)
-                <img class="mw-100" src="{{ uploaded_asset(get_setting('system_logo_white')) }}" class="brand-icon" alt="{{ get_setting('site_name') }}">
+                @if(get_setting('header_logo') != null)
+                <img class="mw-100" src="{{ uploaded_asset(get_setting('header_logo')) }}" class="brand-icon" alt="{{ get_setting('site_name') }}" style="height: 40px; margin: 0 auto; display: block; ">
                 @else
                 <img class="mw-100" src="{{ static_asset('assets/img/logo.png') }}" class="brand-icon" alt="{{ get_setting('site_name') }}">
                 @endif
@@ -104,6 +104,11 @@
                     <li class="aiz-side-nav-item">
                         <a href="{{ route('website.footer', ['lang'=>  App::getLocale()] ) }}" class="aiz-side-nav-link {{ areActiveRoutes(['website.footer'])}}">
                             <span class="aiz-side-nav-text">{{translate('Footer')}}</span>
+                        </a>
+                    </li>
+                    <li class="aiz-side-nav-item">
+                        <a href="{{ route('website.appearance') }}" class="aiz-side-nav-link">
+                            <span class="aiz-side-nav-text">Appearance</span>
                         </a>
                     </li>
                 </ul>

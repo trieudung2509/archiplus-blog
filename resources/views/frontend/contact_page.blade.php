@@ -63,11 +63,11 @@
             </div>
             <div class="col-xl-4 offset-xl-2 col-lg-5 offset-lg-1">
                 <div class="box box--padded box--bordered text-center">
-                <p class="headline-6 mb-5em"> Address </p>
+                <p class="headline-6 mb-5em"> Địa chỉ </p>
                 <div class="content mb-20em">
                     <p>{{ get_setting('contact_address',null,'en') }}</p>
                 </div>
-                <p class="headline-6 mt-20em mb-5em">Telephone</p>
+                <p class="headline-6 mt-20em mb-5em">Điện thoại</p>
                 <a href="tel:{{ get_setting('contact_phone') }}" title="Call us" class="link">{{ get_setting('contact_phone') }}</a>
                 <p class="headline-6 mt-20em mb-5em">Email</p>
                 <a href="mailto:{{ get_setting('contact_email') }}" title="Email us" class="link">{{ get_setting('contact_email') }}</a>
