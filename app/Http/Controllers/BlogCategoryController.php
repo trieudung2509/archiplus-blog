@@ -158,4 +158,12 @@ class BlogCategoryController extends Controller
         $cateblog->save();
         return 1;
     }
+
+    public function change_show_menu_status(Request $request) {
+        $cateblog = BlogCategory::find($request->id);
+        $cateblog->is_show_menu = $request->status;
+        
+        $cateblog->save();
+        return 1;
+    }
 }

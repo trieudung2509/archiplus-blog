@@ -80,6 +80,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     Route::get('/blog/destroy/{id}', 'BlogController@destroy')->name('blog.destroy');
     Route::post('/blog/change-status', 'BlogController@change_status')->name('blog.change-status');
     Route::post('/blog-category/change-home-page-status', 'BlogCategoryController@change_home_page_status')->name('blog-category.change-home-page-status');
+    Route::post('/blog-category/change_show_menu_status', 'BlogCategoryController@change_show_menu_status')->name('blog-category.change-show-menu-status');
     
 
     // Route::resource('pages', 'PageController');
