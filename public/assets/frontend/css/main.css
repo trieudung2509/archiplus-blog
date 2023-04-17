@@ -633,7 +633,7 @@ img {
   @media all and (min-width: 991px) {
     .l-header__logo-icon {
       width: 468px;
-      height: 168px;
+      height: 100px;
       border-left: 2px solid #000;
       border-right: 2px solid #000;
     }
@@ -1150,7 +1150,7 @@ img {
     padding: 35px 0;
     display: inline-block;
     line-height: 1.1;
-    font-family: "Butler", serif;
+    /* font-family: "Butler", serif; */
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.2em;
@@ -5339,7 +5339,7 @@ img {
   .headline-1 {
     margin: 0 0 0.6em 0;
     line-height: 1.1;
-    font-family: "Butler", serif;
+    /* font-family: "Butler", serif; */
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.2em;
@@ -6606,7 +6606,7 @@ img {
   }
   .splide__slide-headline {
     font-size: 50px;
-    font-family: "Butler", serif;
+    /* font-family: "Butler", serif; */
     font-weight: 400;
     position: absolute;
     top: 50%;
@@ -7951,7 +7951,7 @@ img {
   .sticky-cta__text {
     margin: 0 0 24px;
     line-height: 1.1;
-    font-family: "Butler", serif;
+    /* font-family: "Butler", serif; */
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.2em;

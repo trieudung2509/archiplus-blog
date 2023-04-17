@@ -8,7 +8,7 @@
 
 @section('content')
     <main>
-        <section class=" section section--p-mlarge-top">
+        <!-- <section class=" section section--p-mlarge-top">
         <div class="content">
             <div class="section__header  container text-center ">
             <p class=""> Giới Thiệu </p>
@@ -16,6 +16,33 @@
             <p>Tư vấn đầu tư xây dựng. Thiết kế xây dựng kiến trúc công trình. Kiểm tra và chứng nhận. Cải tạo sửa chữa. Sản xuất và thi công. Thi công hoàn thiện.</p>
             </div>
         </div>
+        </section> -->
+        <section class="banner__slider">
+            <div class="slider stick-dots">
+                @php
+                    $slider_bannerIds = explode(",", $slider_banner->image_thumb_ids);
+                @endphp
+                @if (count($slider_bannerIds) > 0)
+                    @foreach($slider_bannerIds as $bannerId)
+                    <div class="slide">
+                        <div class="slide__img">
+                            <img src="{{ uploaded_asset($bannerId) }}" alt="" data-lazy="{{ uploaded_asset($bannerId) }}" class="full-image animated" data-animation-in="zoomInImage"/>
+                        </div>
+                        <div class="slide__content ">
+                            <div class="slide__content--headings text-center">
+                                <p class="animated top-title" data-animation-in="fadeInUp" data-delay-in="0.3">{{ $slider_banner->title }}</p>
+                                <h2 class="animated title" data-animation-in="fadeInUp">{{ $slider_banner->short_description }}</h2>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                @endif
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" width="44px" height="44px" id="circle" fill="none" stroke="currentColor">
+                    <circle r="20" cy="22" cx="22" id="test">
+                </symbol>
+            </svg>
         </section>
         <section class=" section section--p-none-top">
         <div class="container ">
