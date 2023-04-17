@@ -68,6 +68,12 @@
                 </a>
             </li>
 
+            <li class="aiz-side-nav-item">
+                <a href="{{ route('slider.home') }}" class="aiz-side-nav-link {{ areActiveRoutes(['slider.home'])}}">
+                    <i class="las la-folder-open aiz-side-nav-icon"></i>
+                    <span class="aiz-side-nav-text">{{ translate('Slider Banners') }}</span>
+                </a>
+            </li>
 
             <!-- marketing -->
             @if(Auth::user()->user_type == 'admin' || in_array('11', json_decode(Auth::user()->staff->role->permissions)))
