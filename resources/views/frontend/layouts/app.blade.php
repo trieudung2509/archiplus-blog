@@ -69,8 +69,19 @@
         height: 100%;
       }
     </style>
+
+@if(Route::is('home') )
+  <link rel="stylesheet" href="{{ static_asset('assets/frontend/css/normalize.min.css') }}">
+  <link rel='stylesheet' href="{{ static_asset('assets/frontend/css/slick.min.css') }}">
+  <script src="{{ static_asset('assets/frontend/js/jquery.min.js') }}"></script>
+  <script src="{{ static_asset('assets/frontend/js/slick-animation.min.js') }}"></script>
+  <script src="{{ static_asset('assets/frontend/js/slick.min.js') }}"></script>
+  <link rel="stylesheet" href="{{ static_asset('assets/frontend/css/style.css') }}">
+@endif
+
+
     </head>
-    <body itemscope itemtype="http://schema.org/WebPage">
+    <body>
       <div id="barba-wrapper">
         <div class="barba-container">
           <div class="l-navbar js-navbar-scroll ">
@@ -114,6 +125,9 @@
     <div class="cursor" id="cursor"></div>
     <script src="{{ static_asset('assets/frontend/js/vendor.js') }}"></script>
     <script src="{{ static_asset('assets/frontend/js/app.js') }}"></script>
+    @if(Route::is('home') )
+    <script src="{{ static_asset('assets/frontend/js/script.js') }}"></script>
+    @endif
     @yield('script')
 </body>
 </html>
