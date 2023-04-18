@@ -5,6 +5,7 @@
 }
 .banner__slider {
   margin-bottom: 100px;
+  position: relative;
 }
 .slide {
   position: relative;
@@ -55,11 +56,27 @@
 .slide .slide__content--headings .animated {
   transition: all 0.5s ease;
 }
-.slide .slide__content--headings .top-title {
-  font-size: 2.5rem;
+.slide__content {
+  position: absolute;
+  bottom: 45px;
+  width: 70%;
+  left: 50%;
+  transform: translate(-50%, 0%);
 }
-.slide .slide__content--headings .title {
-  font-size: 3.5rem;
+
+@media only screen and (max-width: 769px) {
+  .slide__content {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 426px) {
+  .banner__slider {
+    padding-top: 100px;
+  }
+}
+.slide__content--headings .title {
+  font-size: 14px;
 }
 .slide .slide__content--headings .button-custom {
   text-decoration: none;
@@ -379,4 +396,17 @@
   20%, 80% {
     transform: rotate(0deg) scaleX(0.1);
   }
+}
+
+.btn--bordered.btn-introduct {
+  margin-top: 10px;
+  background: rgba(0, 0, 0, 0.43);
+  border: none;
+  padding: 0px;
+}
+
+
+.btn--bordered.btn-introduct .btn__inner {
+  padding: 15px 50px;
+  font-size: 14px;
 }

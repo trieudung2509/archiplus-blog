@@ -11,15 +11,7 @@
             <div class="card-body">
                 <form id="add_form" class="form-horizontal" action="{{ route('slider.update') }}" method="POST">
                     @csrf
-                    <div class="form-group row">
-                        <label class="col-md-2 col-form-label">
-                            {{translate('Title')}}
-                        </label>
-                        <div class="col-md-10">
-                            <input type="text" placeholder="{{translate('Title')}}" id="title" name="title" class="form-control" value="{{ $slider_banner->title != null ? $slider_banner->title : '' }}">
-                        </div>
-                    </div>
-      
+
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label">
                             {{translate('Short Description')}}

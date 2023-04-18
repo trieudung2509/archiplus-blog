@@ -10543,4 +10543,25 @@ img {
     background-color: #000;
   }
   /*# sourceMappingURL=main.css.map */
-  
+  #back-to-top {
+    background-color: #8dc33a;
+    border-radius: 50%;
+    bottom: 60px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+    width: 50px;
+    display: none;
+    height: 50px;
+    line-height: 50px;
+    position: fixed;
+    right: 30px;
+    text-align: center;
+    text-decoration: none;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    z-index: 337;
+  }
+  #back-to-top i {
+    font-size: 23px;
+  }

@@ -55,3 +55,6 @@
     </div>
   </div>
 </footer>
+<a href="#" id="back-to-top">
+  <i class="far fa-angle-up"></i>
+</a>

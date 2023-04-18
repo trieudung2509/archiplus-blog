@@ -15,8 +15,7 @@ class CreateSliderBannersTable extends Migration
     {
         Schema::create('slider_banners', function (Blueprint $table) {
             $table->id();
-            $table->string("title")->nullable();
-            $table->string("short_description")->nullable();
+            $table->string("short_description", 1000)->nullable();
             $table->string('image_thumb_ids')->nullable();
             $table->timestamps();
         });
