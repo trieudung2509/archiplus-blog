@@ -28,15 +28,16 @@
                         <div class="slide__img">
                             <img src="{{ uploaded_asset($bannerId) }}" alt="" data-lazy="{{ uploaded_asset($bannerId) }}" class="full-image animated" data-animation-in="zoomInImage"/>
                         </div>
-                        <div class="slide__content ">
-                            <div class="slide__content--headings text-center">
-                                <p class="animated top-title" data-animation-in="fadeInUp" data-delay-in="0.3">{{ $slider_banner->title }}</p>
-                                <h2 class="animated title" data-animation-in="fadeInUp">{{ $slider_banner->short_description }}</h2>
-                            </div>
-                        </div>
+                        
                     </div>
                     @endforeach
                 @endif
+            </div>
+            <div class="slide__content ">
+                <div class="slide__content--headings text-center">
+                    <h2 class="animated title" data-animation-in="fadeInUp">{{ $slider_banner->short_description }}</h2>
+                    <a class=" btn btn--bordered btn-introduct" href="{{ route('about_page') }}" title="Xem Thêm"><span class="btn__inner"> Xem Thêm </span></a>
+                </div>
             </div>
             <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
                 <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" width="44px" height="44px" id="circle" fill="none" stroke="currentColor">

@@ -17,7 +17,6 @@ class SliderBannerController extends Controller
         $slider_banner = SliderBanner::first();
         if ($slider_banner == null) {
             $slider_banner = new SliderBanner();
-            $slider_banner->title = null;
             $slider_banner->short_description = null;
             $slider_banner->image_thumb_ids = null;
             $slider_banner->save();
@@ -28,7 +27,6 @@ class SliderBannerController extends Controller
 
     public function slider_update(Request $request) {
         $slider_banner = SliderBanner::first();
-        $slider_banner->title = $request->title;
         $slider_banner->short_description = $request->short_description;
         $slider_banner->image_thumb_ids = $request->image_thumbnail;
         $slider_banner->save();

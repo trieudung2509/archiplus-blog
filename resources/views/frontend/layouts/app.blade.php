@@ -69,11 +69,11 @@
         height: 100%;
       }
     </style>
-
+   <script src="{{ static_asset('assets/frontend/js/jquery.min.js') }}"></script>
 @if(Route::is('home') )
-  <link rel="stylesheet" href="{{ static_asset('assets/frontend/css/normalize.min.css') }}">
+  <link rel="stylesheet" href="{{ static_asset('assets/frontend/css/all.min.css') }}" />
+  <!-- <link rel="stylesheet" href="{{ static_asset('assets/frontend/css/normalize.min.css') }}"> -->
   <link rel='stylesheet' href="{{ static_asset('assets/frontend/css/slick.min.css') }}">
-  <script src="{{ static_asset('assets/frontend/js/jquery.min.js') }}"></script>
   <script src="{{ static_asset('assets/frontend/js/slick-animation.min.js') }}"></script>
   <script src="{{ static_asset('assets/frontend/js/slick.min.js') }}"></script>
   <link rel="stylesheet" href="{{ static_asset('assets/frontend/css/style.css') }}">
@@ -129,5 +129,24 @@
     <script src="{{ static_asset('assets/frontend/js/script.js') }}"></script>
     @endif
     @yield('script')
+    <script>
+       var body = $("html, body");
+       let height = $(document).height();
+     
+       $(window).scroll(function(){
+          var top = $(this).scrollTop() // Get position of the body
+          console.log({ top })
+          console.log({ height })
+          if(top >= height/5 )
+          {
+            $("#back-to-top").show();
+          } else {
+            $("#back-to-top").hide();
+          }
+        });
+        $(document).on("click", "#back-to-top", function() {
+          body.stop().animate({scrollTop:0}, 500, 'swing');
+        });
+    </script>
 </body>
 </html>
