@@ -95,9 +95,9 @@
               <div class="row row--no-gutters align-items-center l-menu">
                 <ul class="col-lg-11 offset-pad-lg-1 l-menu-left">
                   <?php 
-                    $list_categories = \App\BlogCategory::where(['status' => 1, 'is_home_page' =>  1, 'parent_id' => null])->get();
+                    $categories_menu = \App\BlogCategory::where(['status' => 1, 'is_show_menu' =>  1])->get();
                   ?>
-                  @foreach( $list_categories as $cate)
+                  @foreach( $categories_menu as $cate)
                   <li class="l-menu-left__item"><a class="l-menu-left__link js-wordsplit" href="{{ route('news_page', ['slug' => $cate->slug]) }}" title="{{ $cate->category_name }}">{{ $cate->category_name }}</a></li>
                   @endforeach
                   <li class="l-menu-left__item"><a class="l-menu-left__link js-wordsplit" href="/about-us" title="About Us">Về chúng tôi</a></li>

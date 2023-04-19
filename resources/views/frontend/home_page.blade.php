@@ -20,7 +20,7 @@
         <section class="banner__slider">
             <div class="slider stick-dots">
                 @php
-                    $slider_bannerIds = explode(",", $slider_banner->image_thumb_ids);
+                    $slider_bannerIds = $slider_banner != null ? explode(",", $slider_banner->image_thumb_ids) : [];
                 @endphp
                 @if (count($slider_bannerIds) > 0)
                     @foreach($slider_bannerIds as $bannerId)
@@ -35,7 +35,7 @@
             </div>
             <div class="slide__content ">
                 <div class="slide__content--headings text-center">
-                    <h2 class="animated title" data-animation-in="fadeInUp">{{ $slider_banner->short_description }}</h2>
+                    <h2 class="animated title" data-animation-in="fadeInUp">{{ $slider_banner->short_description ?? '' }}</h2>
                     <a class=" btn btn--bordered btn-introduct" href="{{ route('about_page') }}" title="Xem Thêm"><span class="btn__inner"> Xem Thêm </span></a>
                 </div>
             </div>

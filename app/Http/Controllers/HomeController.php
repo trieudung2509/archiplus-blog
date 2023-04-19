@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function home_page()
     {
-        $list_categories = BlogCategory::Where(['status' => 1])->select('id', 'category_name', 'slug')->get();
+        $list_categories = BlogCategory::Where(['status' => 1, 'is_home_page' => 1])->select('id', 'category_name', 'slug')->get();
         $slider_banner = SliderBanner::first();
 
         return view('frontend.home_page', compact('list_categories', 'slider_banner'));
