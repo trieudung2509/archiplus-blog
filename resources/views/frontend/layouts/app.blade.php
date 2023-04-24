@@ -9,13 +9,13 @@
 
 
     <meta charset="utf-8">
-    <title>@yield('meta_title')</title>
+    <title>@yield('meta_description', get_setting('meta_description') )</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="robots" content="index, follow">
 
     <link rel="icon" href="{{ uploaded_asset(get_setting('site_icon')) }}">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400&display=swap" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ static_asset('assets/frontend/css/main.css') }}">
     <script>
       (function(w, d) {
@@ -70,26 +70,33 @@
       }
     </style>
    <script src="{{ static_asset('assets/frontend/js/jquery.min.js') }}"></script>
-@if(Route::is('home') )
   <link rel="stylesheet" href="{{ static_asset('assets/frontend/css/all.min.css') }}" />
-  <!-- <link rel="stylesheet" href="{{ static_asset('assets/frontend/css/normalize.min.css') }}"> -->
   <link rel='stylesheet' href="{{ static_asset('assets/frontend/css/slick.min.css') }}">
   <script src="{{ static_asset('assets/frontend/js/slick-animation.min.js') }}"></script>
   <script src="{{ static_asset('assets/frontend/js/slick.min.js') }}"></script>
   <link rel="stylesheet" href="{{ static_asset('assets/frontend/css/style.css') }}">
-@endif
-
 
     </head>
     <body>
       <div id="barba-wrapper">
         <div class="barba-container">
-          <div class="l-navbar js-navbar-scroll ">
-            <div class="l-navbar__logo "><a class="l-navbar__logo-icon" href="/" title="Go to homepage"><span>Go to homepage</span>
-            <img src="{{ uploaded_asset(get_setting('header_logo')) }}" style="width: 75%;" />
-          </a></div><button class="l-navbar__burger js-burger-btn custom-cursor" type="button" aria-label="menu"><span class="l-navbar__burger-text">Menu</span><span class="burger custom-cursor"><span class="burger-item burger-item--first"></span><span class="burger-item burger-item--second"></span></span></button>
-          </div>
-          <div class="l-navbar-mobile l-navbar-mobile--hide js-nav-mobile"><a href="/" title="Go to homepage"><img class="l-navbar-mobile__logo" src="{{ uploaded_asset(get_setting('header_logo')) }}" alt="Archiplus Design"></a><button class="burger js-burger-btn custom-cursor" type="button" aria-label="menu"><span class="burger-item burger-item--first"></span><span class="burger-item burger-item--second"></span></button></div>
+          <!-- <div class="l-navbar js-navbar-scroll ">
+            <div class="l-navbar__logo ">
+              <a class="l-navbar__logo-icon reload-home" href="#" title="Go to homepage">
+                <span>Go to homepage</span>
+                <img src="{{ uploaded_asset(get_setting('header_logo')) }}" style="width: 75%;" />
+              </a>
+            </div>
+              <button class="l-navbar__burger js-burger-btn custom-cursor" type="button" aria-label="menu">
+                <span class="l-navbar__burger-text">Menu</span>
+                <span class="burger custom-cursor">
+                  <span class="burger-item burger-item--first"></span>
+                  <span class="burger-item burger-item--second"></span>
+                </span>
+              </button>
+            </div>
+          <div class="l-navbar-mobile l-navbar-mobile--hide js-nav-mobile"><a href="#" class="reload-home" title="Go to homepage"><img class="l-navbar-mobile__logo" src="{{ uploaded_asset(get_setting('header_logo')) }}" alt="Archiplus Design"></a><button class="burger js-burger-btn custom-cursor" type="button" aria-label="menu"><span class="burger-item burger-item--first"></span><span class="burger-item burger-item--second"></span></button></div> -->
+          <!-- onclick icon show menu -->
           <nav class="l-menu-wrapper js-menu-wrapper hide">
             <div class="container-large">
               <div class="row row--no-gutters align-items-center l-menu">
@@ -125,28 +132,44 @@
     <div class="cursor" id="cursor"></div>
     <script src="{{ static_asset('assets/frontend/js/vendor.js') }}"></script>
     <script src="{{ static_asset('assets/frontend/js/app.js') }}"></script>
-    @if(Route::is('home') )
-    <script src="{{ static_asset('assets/frontend/js/script.js') }}"></script>
-    @endif
     @yield('script')
     <script>
-       var body = $("html, body");
-       let height = $(document).height();
-     
-       $(window).scroll(function(){
-          var top = $(this).scrollTop() // Get position of the body
-          console.log({ top })
-          console.log({ height })
-          if(top >= height/5 )
-          {
-            $("#back-to-top").show();
-          } else {
-            $("#back-to-top").hide();
-          }
-        });
-        $(document).on("click", "#back-to-top", function() {
-          body.stop().animate({scrollTop:0}, 500, 'swing');
-        });
+      $(document).ready(function() {
+        var body = $("html, body");
+        let height = $(document).height();
+      
+        $(window).scroll(function(){
+            var top = $(this).scrollTop() // Get position of the body
+            if(top >= height/5 )
+            {
+              $("#edgtf-back-to-top").addClass("on");
+            } else {
+              $("#edgtf-back-to-top").removeClass("on");
+            }
+          });
+          $(document).on("click", "#edgtf-back-to-top", function() {
+            body.stop().animate({scrollTop:0}, 500, 'swing');
+          });
+
+          $('.slider').slick({
+            autoplay: true,
+            speed: 500,
+            autoplaySpeed: 3600,
+            fade: true,
+            lazyLoad: 'progressive',
+            arrows: false,
+            dots: false,
+            cssEase: 'linear',
+            infinite: true
+          });
+          $(document).on("click", ".reload-home", function(event) {
+            event.preventDefault();
+            console.log("asss");
+            window.location.href = "/";
+          });
+      })
+  
+        
     </script>
 </body>
 </html>

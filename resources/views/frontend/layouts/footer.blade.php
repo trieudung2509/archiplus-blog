@@ -2,7 +2,7 @@
   <div class="container-large">
     <div class="l-footer__row">
       <div class="l-footer__col l-footer__col--flex l-footer__col--border-gold text-center js-footer-block">
-        <a class="l-footer__logo" href="/" title="Xavio Design" aria-label="Xavio Design">
+        <a class="l-footer__logo reload-home" href="#" title="Archiplus Design" aria-label="Archiplus Design">
           <img class="l-footer__logo-icon" src="{{ uploaded_asset(get_setting('footer_logo')) }}" alt="Archiplus Design" />
         </a>
         <ul class="social mt-10em">
@@ -55,6 +55,10 @@
     </div>
   </div>
 </footer>
-<a href="#" id="back-to-top">
-  <i class="far fa-angle-up"></i>
+<a id="edgtf-back-to-top" href="#">
+  <span class="edgtf-btn-lines line-1"></span>
+  <span class="edgtf-btn-lines line-2"></span>
+  <span class="edgtf-icon-stack">Top</span>
+  <span class="edgtf-btn-lines line-3"></span>
+  <span class="edgtf-btn-lines line-4"></span>
 </a>
