@@ -140,7 +140,12 @@
       
         $(window).scroll(function(){
             var top = $(this).scrollTop() // Get position of the body
-            if(top >= height/5 )
+            if (top >= 140) {
+              $(body).addClass("fix-scroll");
+            } else {
+              $(body).removeClass("fix-scroll");
+            }
+            if(top >= height/6 )
             {
               $("#edgtf-back-to-top").addClass("on");
             } else {

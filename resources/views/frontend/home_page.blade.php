@@ -45,49 +45,149 @@
                 </symbol>
             </svg>
         </section>
-        <section class=" section section--p-none-top">
-        <div class="container ">
-            @foreach($list_categories as $cate)
-            <h2 class="headline-1 letters js-wordsplit text-center">{{ $cate->category_name ?: '' }}</span>
-            </h2>
-            <?php 
-                $list_posts = \App\Blog::Where('category_id', $cate->id)->orderBy('published_date')->take(6)->select('id','slug', 'banner', 'title', 'published_date', 'short_description')->get();
-            ?>
-            <div class="row row--g-20 tile-container">
-                @foreach($list_posts as $post)
-                <article class="col-lg-4 col-md-6">
-                    <a href="{{ route('detail_page', ['slug' => $post->slug]) }}" class="tile tile--full-height">
-                        <div class="tile__img">
-                            <div class="tile__img-box tile__img-box--height-sm animation-imageScale lazy" id="news_{{ $post->id }}" data-name="news_{{ $post->id }}" data-style="    @media screen and (max-width:500px) {  #news_{{ $post->id }} {  background-image: url('{{ uploaded_asset($post->banner) }}?w=600&h=&fit=crop&q=80&auto=format&fm=png&crop=faces,edges')  } }    @media screen and (min-width:501px) and (max-width:768px) {  #news_{{ $post->id }} {  background-image: url('{{ uploaded_asset($post->banner) }}?w=700&h=&fit=crop&q=80&auto=format&fm=png&crop=faces,edges')  } }    @media screen and (min-width:769px) and (max-width:991px) {  #news_{{ $post->id }} {  background-image: url('{{ uploaded_asset($post->banner) }}?w=500&h=&fit=crop&q=80&auto=format&fm=png&crop=faces,edges')  } }    @media screen and (min-width:992px) and (max-width:1199px) {  #news_{{ $post->id }} {  background-image: url('{{ uploaded_asset($post->banner) }}?w=500&h=&fit=crop&q=80&auto=format&fm=png&crop=faces,edges')  } }    @media screen and (min-width:1200px) and (max-width:1400px) {  #news_{{ $post->id }} {  background-image: url('{{ uploaded_asset($post->banner) }}?w=600&h=&fit=crop&q=80&auto=format&fm=png&crop=faces,edges')  } }    @media screen and (min-width:1401px) {  #news_{{ $post->id }} {  background-image: url('{{ uploaded_asset($post->banner) }}?w=600&h=&fit=crop&q=80&auto=format&fm=png&crop=faces,edges')  } }   ">
-                                <picture>
-                                <source data-srcset="{{ uploaded_asset($post->banner) }}?w=499&h=&fit=crop&q=80&auto=format&fm=png&crop=faces,edges" media="(max-width: 499px)">
-                                <source data-srcset="{{ uploaded_asset($post->banner) }}?w=500&h=&fit=crop&q=80&auto=format&fm=png&crop=faces,edges" media="(max-width: 500px)">
-                                <source data-srcset="{{ uploaded_asset($post->banner) }}?w=641&h=&fit=crop&q=80&auto=format&fm=png&crop=faces,edges" media="(max-width: 641px)">
-                                <source data-srcset="{{ uploaded_asset($post->banner) }}?w=769&h=&fit=crop&q=80&auto=format&fm=png&crop=faces,edges" media="(max-width: 769px)">
-                                <source data-srcset="{{ uploaded_asset($post->banner) }}?w=902&h=&fit=crop&q=80&auto=format&fm=png&crop=faces,edges" media="(max-width: 902px)">
-                                <source data-srcset="{{ uploaded_asset($post->banner) }}?w=1025&h=&fit=crop&q=80&auto=format&fm=png&crop=faces,edges" media="(max-width: 1025px)">
-                                <source data-srcset="{{ uploaded_asset($post->banner) }}?w=1200&h=&fit=crop&q=80&auto=format&fm=png&crop=faces,edges" media="(max-width: 1200px)">
-                                <source data-srcset="{{ uploaded_asset($post->banner) }}?w=1582&h=&fit=crop&q=80&auto=format&fm=png&crop=faces,edges" media="(max-width: 1582px)">
-                                <source data-srcset="{{ uploaded_asset($post->banner) }}?w=1920&h=&fit=crop&q=80&auto=format&fm=png&crop=faces,edges" media="(max-width: 1920px)">
-                                <img class=" lazy" data-src="{{ uploaded_asset($post->banner) }}?w=3860&h=&fit=crop&q=80&auto=format&fm=png&crop=faces,edges" alt="{{ $post->title }}">
-                            </picture>
-                        </div>
-                        <span class="tile__img-curtain slideInUp"></span>
-                        </div>
-                        <div class="tile__content content">
-                        <h2 class="headline-5">{{ $post->title }}</h2>
-                        <time datetime="{{ utcToLocalTime($post->published_date) }}"> {{ utcToLocalTime($post->published_date)->toDateString() }}</time>
-                        <p class="content__small-text">{{ $post->short_description }}</p>
-                        </div>
-                    </a>
-                </article>
-                @endforeach
+        <div class="vc_row wpb_row vc_row-fluid">
+            <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-has-fill">
+                <div class="vc_column-inner vc_custom_1673165125400">
+                <div class="wpb_wrapper">
+                    <div class="vc_separator wpb_content_element vc_separator_align_center vc_sep_width_100 vc_sep_pos_align_center vc_separator_no_text vc_sep_color_black vc_custom_1673165090760  vc_custom_1673165090760">
+                    <span class="vc_sep_holder vc_sep_holder_l">
+                        <span class="vc_sep_line"></span>
+                    </span>
+                    <span class="vc_sep_holder vc_sep_holder_r">
+                        <span class="vc_sep_line"></span>
+                    </span>
+                    </div>
+                </div>
+                </div>
             </div>
-            <p class="text-center" style="margin-bottom: 8rem;">
-                <a class=" btn btn--bordered " href="{{ route('news_page', ['slug' => $cate->slug]) }}" title="Xem Thêm"> Xem Thêm </a>
-            </p>
-            @endforeach
         </div>
+        <div class="vc_row wpb_row vc_row-fluid vc_custom_1673165220170">
+            <div class="wpb_column vc_column_container vc_col-sm-12">
+                <div class="vc_column-inner">
+                <div class="wpb_wrapper">
+                    <div class="edgtf-elements-holder   edgtf-one-column  edgtf-responsive-mode-768 ">
+                    <div class="edgtf-eh-item   edgtf-horizontal-alignment-center " data-item-class="edgtf-eh-custom-8937" data-1024-1280="0 0 0 0" data-768-1024="0 0 0 0" data-680-768="0 4% 0 4%" data-680="0 0 0 0">
+                        <div class="edgtf-eh-item-inner">
+                        <div class="edgtf-eh-item-content edgtf-eh-custom-8937" style="padding: 0 17% 0 17%">
+                            <div class="edgtf-section-title-holder  edgtf-st-standard  edgtf-st-position-left edgtf-appear-fx" style="text-align: center">
+                            <div class="edgtf-st-inner">
+                                <div class="edgtf-st-title-holder">
+                                <h1 class="edgtf-st-title" style="color: #fff"> 150+ Dự <br> Án </h1>
+                                </div>
+                                <div class="edgtf-st-text-holder">
+                                <h6 class="edgtf-st-text" style="color: #fff"> Trong hơn 08 năm, trên hơn 150 khách hàng từ cá nhân cho đến các tổ chức, đội ngũ của chúng tôi đã hoàn thiện quá trình thúc đẩy kinh doanh thông qua thiết kế. Các công trình mục đích thương mại hay nhà ở, chúng tôi đều đã có những sản phẩm hoàn thiện và được khách hàng đánh giá cao. <br> Chúng tôi tự hào về tính minh bạch tinh thần xây dựng, và hợp tác. Luôn học hỏi, tìm hiểu những điều mới để thúc đẩy công việc thiết kế. Chúng tôi tin rằng thiết kế mang lại những giá trị thiết thực và giá trị thiết thực đó phục vụ cho sự phát triển của xã hội. <br> Chúng tôi mong muốn hợp tác để tìm kiếm cơ hội với những dự án mới, những thử thách mới, cung cấp những dịch vụ tốt nhất tới khách hàng. Và đó là cơ sở để chúng tôi xây dựng, phát triển doanh nghiệp bền vững. </h6>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="vc_separator wpb_content_element vc_separator_align_center vc_sep_width_50 vc_sep_pos_align_center vc_separator_no_text vc_sep_color_black vc_custom_1673230930921  vc_custom_1673230930921">
+                            <span class="vc_sep_holder vc_sep_holder_l">
+                                <span class="vc_sep_line"></span>
+                            </span>
+                            <span class="vc_sep_holder vc_sep_holder_r">
+                                <span class="vc_sep_line"></span>
+                            </span>
+                            </div>
+                            <div class="edgtf-section-title-holder  edgtf-st-standard  edgtf-st-position-left edgtf-appear-fx" style="text-align: center">
+                            <div class="edgtf-st-inner">
+                                <div class="edgtf-st-text-holder">
+                                <h5 class="edgtf-st-text" style="font-weight: 300; text-transform: uppercase;"> - Giá trị cốt lõi của chúng tôi chính là sự hài lòng của khách hàng - </h5>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="vc_row wpb_row vc_row-fluid">
+            <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-has-fill">
+                <div class="vc_column-inner vc_custom_1673165125400">
+                <div class="wpb_wrapper">
+                    <div class="vc_separator wpb_content_element vc_separator_align_center vc_sep_width_100 vc_sep_pos_align_center vc_separator_no_text vc_sep_color_black vc_custom_1673165090760  vc_custom_1673165090760">
+                    <span class="vc_sep_holder vc_sep_holder_l">
+                        <span class="vc_sep_line"></span>
+                    </span>
+                    <span class="vc_sep_holder vc_sep_holder_r">
+                        <span class="vc_sep_line"></span>
+                    </span>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="vc_row wpb_row vc_row-fluid vc_custom_1673232508727">
+            <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-has-fill">
+                <div class="vc_column-inner vc_custom_1673232448314">
+                <div class="wpb_wrapper">
+                    <div class="edgtf-link-section-holder edgtf-appear-fx edgtf-appear">
+                    <div class="edgtf-link-section-title-holder">
+                        <h2 class="edgtf-link-section-title"> DỰ ÁN </h2>
+                    </div>
+                    <div class="edgtf-single-link-section-holder">
+                        <a href="https://bluedesignvn.com/du-an/kien-truc/" class="edgtf-link-section">
+                        <div class="edgtf-single-link-title-holder">
+                            <h5 class="edgtf-single-link-title"> KIẾN TRÚC </h5>
+                        </div>
+                        </a>
+                    </div>
+                    <div class="edgtf-single-link-section-holder">
+                        <a href="https://bluedesignvn.com/du-an/noi-that/" class="edgtf-link-section">
+                        <div class="edgtf-single-link-title-holder">
+                            <h5 class="edgtf-single-link-title"> NỘI THẤT </h5>
+                        </div>
+                        </a>
+                    </div>
+                    <div class="edgtf-single-link-section-holder">
+                        <a href="https://bluedesignvn.com/du-an/xay-dung-hoan-thien/" class="edgtf-link-section">
+                        <div class="edgtf-single-link-title-holder">
+                            <h5 class="edgtf-single-link-title"> XÂY DỰNG - HOÀN THIỆN </h5>
+                        </div>
+                        </a>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="section section--post">
+            <div class="container-fluid">
+                <div class="row">
+                    @foreach($list_posts as $post)
+                        <article class="col-lg-4 col-md-6">
+                            <a href="{{ route('detail_page', ['slug' => $post->slug]) }}" class="tile tile--full-height">
+                            <div class="tile__img">
+                                <div class="tile__img-box tile__img-box--height-sm animation-imageScale lazy" id="news_{{ $post->id }}" data-name="news_{{ $post->id }}" data-style="    @media screen and (max-width:500px) {  #news_{{ $post->id }} {  background-position: 100% 100%; background-image: url('{{ uploaded_asset($post->banner);  }}?w=600&h=&fit=crop&q=80&auto=format&fm=png&crop=faces,edges')  } }    @media screen and (min-width:501px) and (max-width:768px) {  #news_{{ $post->id }} { background-position: 100% 100%; background-image: url('{{ uploaded_asset($post->banner) }}?w=700&h=&fit=crop&q=80&auto=format&fm=png&crop=faces,edges')  } }    @media screen and (min-width:769px) and (max-width:991px) {  #news_{{ $post->id }} { background-position: 100% 100%; background-image: url('{{ uploaded_asset($post->banner) }}?w=500&h=&fit=crop&q=80&auto=format&fm=png&crop=faces,edges')  } }    @media screen and (min-width:992px) and (max-width:1199px) {  #news_{{ $post->id }} { background-position: 100% 100%; background-image: url('{{ uploaded_asset($post->banner) }}?w=500&h=&fit=crop&q=80&auto=format&fm=png&crop=faces,edges')  } }    @media screen and (min-width:1200px) and (max-width:1400px) {  #news_{{ $post->id }} { background-position: 100% 100%; background-image: url('{{ uploaded_asset($post->banner) }}?w=600&h=&fit=crop&q=80&auto=format&fm=png&crop=faces,edges')  } }    @media screen and (min-width:1401px) {  #news_{{ $post->id }} { background-position: 100% 100%; background-image: url('{{ uploaded_asset($post->banner) }}?w=600&h=&fit=crop&q=80&auto=format&fm=png&crop=faces,edges')  } }   ">
+                                    <picture>
+                                    <source data-srcset="{{ uploaded_asset($post->banner) }}?w=499&h=&fit=crop&q=80&auto=format&fm=png&crop=faces,edges" media="(max-width: 499px)">
+                                    <source data-srcset="{{ uploaded_asset($post->banner) }}?w=500&h=&fit=crop&q=80&auto=format&fm=png&crop=faces,edges" media="(max-width: 500px)">
+                                    <source data-srcset="{{ uploaded_asset($post->banner) }}?w=641&h=&fit=crop&q=80&auto=format&fm=png&crop=faces,edges" media="(max-width: 641px)">
+                                    <source data-srcset="{{ uploaded_asset($post->banner) }}?w=769&h=&fit=crop&q=80&auto=format&fm=png&crop=faces,edges" media="(max-width: 769px)">
+                                    <source data-srcset="{{ uploaded_asset($post->banner) }}?w=902&h=&fit=crop&q=80&auto=format&fm=png&crop=faces,edges" media="(max-width: 902px)">
+                                    <source data-srcset="{{ uploaded_asset($post->banner) }}?w=1025&h=&fit=crop&q=80&auto=format&fm=png&crop=faces,edges" media="(max-width: 1025px)">
+                                    <source data-srcset="{{ uploaded_asset($post->banner) }}?w=1200&h=&fit=crop&q=80&auto=format&fm=png&crop=faces,edges" media="(max-width: 1200px)">
+                                    <source data-srcset="{{ uploaded_asset($post->banner) }}?w=1582&h=&fit=crop&q=80&auto=format&fm=png&crop=faces,edges" media="(max-width: 1582px)">
+                                    <source data-srcset="{{ uploaded_asset($post->banner) }}?w=1920&h=&fit=crop&q=80&auto=format&fm=png&crop=faces,edges" media="(max-width: 1920px)">
+                                    <img class=" lazy" data-src="{{ uploaded_asset($post->banner) }}?w=3860&h=&fit=crop&q=80&auto=format&fm=png&crop=faces,edges" alt="{{ $post->title }}">
+                                    </picture>
+                                </div>
+                                <span class="tile__img-curtain slideInUp"></span>
+                            </div>
+                            <div class="tile__content content">
+                                <h2 class="headline-5">{{ $post->title }}</h2>
+                                <p class="content__small-text">13 pics</p>
+                                <svg version="1.1" id="btn-arrow-1949404842" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="18px" height="4px" viewBox="0 0 18 4" enable-background="new 0 0 18 4" xml:space="preserve">
+                                <polyline fill="none" stroke="#fff" stroke-miterlimit="10" points="0,3.508 16.809,3.508 13.686,0.342 "></polyline>
+                                </svg>
+                            </div>
+                            </a>
+                        </article>
+                    @endforeach
+                </div>
+             
+            </div>
         </section>
     </main>
 @endsection

@@ -1,7 +1,7 @@
  <?php 
-    $classHeader = 'l-header l-header--mt l-header--mt-none-desktop container-mlarge text-center';
+    $classHeader = 'l-header l-header--mt l-header--mt-none-desktop  text-center';
     if (Route::is('home')) {
-      $classHeader = 'l-header l-header--mt l-header--mt-none-desktop container-mlarge text-center home-page';
+      $classHeader = 'l-header l-header--mt l-header--mt-none-desktop text-center home-page';
     }
 
     if (Route::is('about_page') || Route::is('contact_page')) {
@@ -13,7 +13,7 @@
     }
 
  ?>
- <header class="{{ $classHeader }}" style="background: #000; padding: 20px 0px;">
+ <header class="{{ $classHeader }}" style="background: #000; padding: 20px 40px;">
     <div class="l-header__logo l-header__logo--cover js-header-logo">
       <a class="l-header__logo-icon reload-home" href="#" title="Go to homepage">
         <img src="{{ uploaded_asset(get_setting('header_logo')) }}" />
