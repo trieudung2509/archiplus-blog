@@ -58,7 +58,7 @@
 }
 .slide__content {
   position: absolute;
-  bottom: 45px;
+  bottom: 20px;
   width: 70%;
   left: 50%;
   transform: translate(-50%, 0%);
@@ -860,6 +860,7 @@ h6 {
   font-weight: 300;
   font-size: 17px;
   color: #fff;
+  text-transform: uppercase;
 }
 
 .edgtf-link-section-holder .edgtf-single-link-section-holder a:hover .edgtf-single-link-title-holder {
@@ -1079,4 +1080,9 @@ body.edgtf-right-side-menu-opened .edgtf-side-menu {
     padding-right: 25px !important;
     padding-left: 25px !important;
   }
+}
+
+.l-header__container-wrapper {
+    padding: 80px 0px;
+    background: url("../img/shop-title-pattern.png") no-repeat;
 }

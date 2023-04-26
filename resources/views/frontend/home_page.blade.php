@@ -8,15 +8,6 @@
 
 @section('content')
     <main>
-        <!-- <section class=" section section--p-mlarge-top">
-        <div class="content">
-            <div class="section__header  container text-center ">
-            <p class=""> Giới Thiệu </p>
-            <h2 class="headline-2 letters js-wordsplit ">Hoạt động của <span class="color-gold">ARCHIPLUS</span></h2>
-            <p>Tư vấn đầu tư xây dựng. Thiết kế xây dựng kiến trúc công trình. Kiểm tra và chứng nhận. Cải tạo sửa chữa. Sản xuất và thi công. Thi công hoàn thiện.</p>
-            </div>
-        </div>
-        </section> -->
         <section class="banner__slider">
             <div class="slider stick-dots">
                 @php
@@ -126,33 +117,24 @@
                     <div class="edgtf-link-section-title-holder">
                         <h2 class="edgtf-link-section-title"> DỰ ÁN </h2>
                     </div>
+                    <?php 
+                        $categories_menu = \App\BlogCategory::where(['status' => 1, 'is_show_menu' =>  1])->get();
+                    ?>
+                    @foreach( $categories_menu as $cate)
                     <div class="edgtf-single-link-section-holder">
-                        <a href="https://bluedesignvn.com/du-an/kien-truc/" class="edgtf-link-section">
+                        <a href="{{ route('news_page', ['slug' => $cate->slug]) }}" class="edgtf-link-section">
                         <div class="edgtf-single-link-title-holder">
-                            <h5 class="edgtf-single-link-title"> KIẾN TRÚC </h5>
+                            <h5 class="edgtf-single-link-title"> {{ $cate->category_name }} </h5>
                         </div>
                         </a>
                     </div>
-                    <div class="edgtf-single-link-section-holder">
-                        <a href="https://bluedesignvn.com/du-an/noi-that/" class="edgtf-link-section">
-                        <div class="edgtf-single-link-title-holder">
-                            <h5 class="edgtf-single-link-title"> NỘI THẤT </h5>
-                        </div>
-                        </a>
-                    </div>
-                    <div class="edgtf-single-link-section-holder">
-                        <a href="https://bluedesignvn.com/du-an/xay-dung-hoan-thien/" class="edgtf-link-section">
-                        <div class="edgtf-single-link-title-holder">
-                            <h5 class="edgtf-single-link-title"> XÂY DỰNG - HOÀN THIỆN </h5>
-                        </div>
-                        </a>
-                    </div>
+                    @endforeach
                     </div>
                 </div>
                 </div>
             </div>
         </div>
-        <div class="section section--post">
+        <section class="section section--post">
             <div class="container-fluid">
                 <div class="row">
                     @foreach($list_posts as $post)

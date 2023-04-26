@@ -18,6 +18,9 @@
       </div>
       <div class="l-footer__col l-footer__col--menu js-footer-block">
         <ul class="l-footer__menu">
+          <li class="l-footer__menu-item">
+            <a class="l-footer__menu-link reload-home" href="#" title="Trang chủ" >Trang chủ</a>
+          </li>
           <?php 
             $list_categories = \App\BlogCategory::where(['status' => 1, 'is_show_menu' =>  1])->select('id', 'slug', 'category_name')->get();
           ?>
