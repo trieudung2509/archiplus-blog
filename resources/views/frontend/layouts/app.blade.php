@@ -78,9 +78,71 @@
 
     </head>
     <body>
+    <section class="edgtf-side-menu" style="overflow-y: hidden; outline: none;" tabindex="0">
+      <div class="edgtf-close-side-menu-holder">
+        <a class="edgtf-close-side-menu" href="#" target="_self">
+          <i class="fal fa-times" style="font-size: 30px;"></i>
+        </a>
+      </div>
+      <div class="widget edgtf-separator-widget">
+        <div class="edgtf-separator-holder clearfix  edgtf-separator-center edgtf-separator-normal">
+          <div class="edgtf-separator" style="border-color: transparent;border-style: solid;width: 10px;border-bottom-width: 20px;margin-top: 24px;margin-bottom: 10px"></div>
+        </div>
+      </div>
+      <div id="text-10" class="widget edgtf-sidearea widget_text">
+        <div class="textwidget">
+          <p>
+            <img decoding="async" loading="lazy" class="alignnone size-full wp-image-3841" src="http://bluedesignvn.com/wp-content/uploads/2023/01/BLUE.jpg" alt="" width="100" height="100">
+          </p>
+        </div>
+      </div>
+      <div class="widget edgtf-separator-widget">
+        <div class="edgtf-separator-holder clearfix  edgtf-separator-center edgtf-separator-normal">
+          <div class="edgtf-separator" style="border-color: transparent;border-style: solid;margin-top: 0px"></div>
+        </div>
+      </div>
+      <div id="text-11" class="widget edgtf-sidearea widget_text">
+        <div class="textwidget">
+          <p>
+            <em>Chúng tôi là Bluedesign. Với hơn 10 năm trong lĩnh vực cung cấp dịch vụ tư vấn thiết kế và hoàn thiện công trình.</em>
+          </p>
+        </div>
+      </div>
+      <div class="widget edgtf-separator-widget">
+        <div class="edgtf-separator-holder clearfix  edgtf-separator-center edgtf-separator-normal">
+          <div class="edgtf-separator" style="border-style: solid;border-bottom-width: 0px;margin-top: 20px;margin-bottom: 0px"></div>
+        </div>
+      </div>
+      <div class="widget edgtf-raw-html-widget  ">
+        <div class="edgtf-icon-list-holder  edgtf-icon-list-inline-display" style="margin-bottom: 0px">
+          <div class="edgtf-il-icon-holder">
+            <i class="fal fa-headphones-alt" style="color: #fff;font-size: 21px"></i>
+          </div>
+          <p class="edgtf-il-text" style="color: #fff;font-size: 15px;padding-left: 13px">Call us on 090.344.6413</p>
+        </div>
+        <div class="edgtf-icon-list-holder  edgtf-icon-list-inline-display" style="margin-bottom: 0px">
+          <div class="edgtf-il-icon-holder">
+            <i class="fal fa-map-marker-alt" style="color: #fff;font-size: 21px"></i>
+          </div>
+          <p class="edgtf-il-text" style="color: #fff;font-size: 15px;padding-left: 13px">26A22 Gleximco, Le Trong Tan, Hoai Duc, Ha Noi</p>
+        </div>
+        <div class="edgtf-icon-list-holder  edgtf-icon-list-inline-display" style="margin-bottom: 0px">
+          <div class="edgtf-il-icon-holder">
+            <i class="fal fa-clock" style="color: #fff;font-size: 21px"></i>
+          </div>
+          <p class="edgtf-il-text" style="color: #fff;font-size: 15px;padding-left: 13px">Mon - Sat 8 AM - 8 PM</p>
+        </div>
+        <div class="edgtf-icon-list-holder  edgtf-icon-list-inline-display" style="margin-bottom: 0px">
+          <div class="edgtf-il-icon-holder">
+            <i class="fal fa-envelope" style="color: #fff;font-size: 21px"></i>
+          </div>
+          <p class="edgtf-il-text" style="color: #fff;font-size: 15px;padding-left: 13px">Contact.bluedesignvn@gmail.com</p>
+        </div>
+      </div>
+    </section>
       <div id="barba-wrapper">
         <div class="barba-container">
-          <!-- <div class="l-navbar js-navbar-scroll ">
+          <div class="l-navbar js-navbar-scroll ">
             <div class="l-navbar__logo ">
               <a class="l-navbar__logo-icon reload-home" href="#" title="Go to homepage">
                 <span>Go to homepage</span>
@@ -95,7 +157,7 @@
                 </span>
               </button>
             </div>
-          <div class="l-navbar-mobile l-navbar-mobile--hide js-nav-mobile"><a href="#" class="reload-home" title="Go to homepage"><img class="l-navbar-mobile__logo" src="{{ uploaded_asset(get_setting('header_logo')) }}" alt="Archiplus Design"></a><button class="burger js-burger-btn custom-cursor" type="button" aria-label="menu"><span class="burger-item burger-item--first"></span><span class="burger-item burger-item--second"></span></button></div> -->
+          <div class="l-navbar-mobile l-navbar-mobile--hide js-nav-mobile"><a href="#" class="reload-home" title="Go to homepage"><img class="l-navbar-mobile__logo" src="{{ uploaded_asset(get_setting('header_logo')) }}" alt="Archiplus Design"></a><button class="burger js-burger-btn custom-cursor" type="button" aria-label="menu"><span class="burger-item burger-item--first"></span><span class="burger-item burger-item--second"></span></button></div>
           <!-- onclick icon show menu -->
           <nav class="l-menu-wrapper js-menu-wrapper hide">
             <div class="container-large">
@@ -137,14 +199,19 @@
       $(document).ready(function() {
         var body = $("html, body");
         let height = $(document).height();
-      
+        
+        $(document).on("click", ".edgtf-side-menu-button-opener", function() {
+          $(this).addClass("opened");
+          $(body).addClass("edgtf-right-side-menu-opened")
+        });
+
+        $(document).on("click", ".edgtf-close-side-menu", function() {
+          $(body).find(".edgtf-side-menu-button-opener").removeClass("opened");
+          $(body).removeClass("edgtf-right-side-menu-opened")
+        });
+
         $(window).scroll(function(){
             var top = $(this).scrollTop() // Get position of the body
-            if (top >= 140) {
-              $(body).addClass("fix-scroll");
-            } else {
-              $(body).removeClass("fix-scroll");
-            }
             if(top >= height/6 )
             {
               $("#edgtf-back-to-top").addClass("on");

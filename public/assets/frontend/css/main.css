@@ -621,7 +621,8 @@ img {
   }
   @media all and (max-width: 991px) {
     .l-header__logo-icon {
-      display: none;
+      display: block;
+      margin: 0 auto;
     }
   }
   .l-header--overflow-hide {
@@ -654,7 +655,7 @@ img {
     z-index: 10;
   }
   .l-footer {
-    margin-top: 100px;
+    margin-top: 50px;
     border-top: 1px solid #333;
   }
   @media all and (max-width: 991px) {
@@ -10617,11 +10618,92 @@ img {
   height: 47px;
 }
 
-.fix-scroll header.l-header {
+header.l-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   display: block;
   z-index: 9999;
+  height: 135px;
+}
+
+@media (max-width: 991px) {
+  header.l-header {
+    height: 175px;
+  }
+  .l-navbar__logo, .l-header__logo {
+    flex-direction: column;
+  }
+  .edgtf-position-right-inner {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+  }
+  .edgtf-main-menu>ul>li>a>span.item_outer {
+     top: unset; 
+    transform: unset !important;
+  }
+  .section--post [class*='col-'] {
+    margin-bottom: 20px;
+  }
+
+  main {
+    margin-top: 190px !important;
+  }
+  .banner__slider {
+    height: 500px !important;
+  }
+
+  .wpb_wrapper .edgtf-eh-item-content {
+    padding: 0 4% 0 4% !important;
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+  .banner__slider {
+    height: 320px !important;
+  }
+  .slide__content--headings .title {
+    font-size: 13px !important;
+  }
+
+  .btn--bordered.btn-introduct {
+    margin-top: 0px !important;
+  }
+
+  .slide__content .btn--bordered.btn-introduct .btn__inner {
+    font-size: 13px;
+    padding: 8px 30px;
+  }
+
+  .l-navbar-right {
+    display: none !important;
+  }
+  header.l-header {
+    display: none;
+  }
+
+  .l-navbar__logo, .l-header__logo {
+    flex-direction: unset;
+  }
+
+  .slick-slider, .slick-list, .slick-track, .slick-slide, .slick-slide > div, .slide, .slide__img, .slide__img img {
+    height: 100% !important;
+  }
+  
+  .slide__img img {
+    object-fit: cover;
+  }
+  .vc_col-has-fill>.vc_column-inner, .vc_row-has-fill+.vc_row-full-width+.vc_row>.vc_column_container>.vc_column-inner, .vc_row-has-fill+.vc_row>.vc_column_container>.vc_column-inner, .vc_row-has-fill>.vc_column_container>.vc_column-inner {
+    padding-top: 15px !important;
+  }
+}
+
+
+main {
+  margin-top: 145px;
 }

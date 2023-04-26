@@ -1,7 +1,7 @@
  <?php 
-    $classHeader = 'l-header l-header--mt l-header--mt-none-desktop  text-center';
+    $classHeader = 'l-header l-header--mt-none-desktop  text-center';
     if (Route::is('home')) {
-      $classHeader = 'l-header l-header--mt l-header--mt-none-desktop text-center home-page';
+      $classHeader = 'l-header l-header--mt-none-desktop text-center home-page';
     }
 
     if (Route::is('about_page') || Route::is('contact_page')) {
@@ -18,7 +18,7 @@
       <a class="l-header__logo-icon reload-home" href="#" title="Go to homepage">
         <img src="{{ uploaded_asset(get_setting('header_logo')) }}" />
       </a>
-      <div clas="l-navbar-right">
+      <div class="l-navbar-right">
                   <div class="edgtf-position-right-inner">
                     <nav class="edgtf-main-menu edgtf-drop-down edgtf-default-nav">
                       <ul id="menu-main-menu-main-navigation-mobile-navigation" class="clearfix">
