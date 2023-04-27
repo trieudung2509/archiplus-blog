@@ -734,7 +734,7 @@ img {
       right: 0;
       width: 100%;
       height: 100%;
-      background-image: url(/images/footer-wing.svg);
+      background-image: url("../img/footer-wing.svg");
       background-size: contain;
       background-repeat: no-repeat;
       background-position: right top;
@@ -748,7 +748,7 @@ img {
       right: 0;
       width: 100%;
       height: 100%;
-      background-image: url(/images/footer-wing.svg);
+      background-image: url("../img/footer-wing.svg");
       background-size: contain;
       background-repeat: no-repeat;
       background-position: right center;
