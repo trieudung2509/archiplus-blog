@@ -48,9 +48,7 @@
     			                <div class="form-group">
     								<label>{{ translate('About description') }} ({{ translate('Translatable') }})</label>
     								<input type="hidden" name="types[][{{ $lang }}]" value="about_us_description">
-    								<textarea class="aiz-text-editor form-control" name="about_us_description" data-buttons='[["font", ["bold", "underline", "italic"]],["para", ["ul", "ol"]],["view", ["undo","redo"]]]' placeholder="Type.." data-min-height="150">
-                                        {!! get_setting('about_us_description',null,$lang); !!}
-                                    </textarea>
+    								<textarea class="form-control" name="about_us_description" rows="5"  placeholder="Type..">{{ get_setting('about_us_description',null,$lang); }}</textarea>
     							</div>
                                 
     							<div class="text-right">

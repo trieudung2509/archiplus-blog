@@ -7,7 +7,13 @@
 @section('canonical') {{ url('') }} @endsection
 
 @section('content')
-    <main>
+    <main class="l-main">
+          <div class="l-header__container-wrapper">
+            <div class="l-header__container">
+              <h1 class="headline-2 letters js-wordsplit text-center">{{ $title ?: '' }}</h1>
+            </div>
+          </div>
+          
         <section class=" section section--p-none-top section--p-none-bottom">
         <div class="container  ">
             <div class="row">

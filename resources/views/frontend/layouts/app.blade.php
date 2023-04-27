@@ -92,7 +92,7 @@
       <div id="text-10" class="widget edgtf-sidearea widget_text">
         <div class="textwidget">
           <p>
-            <img decoding="async" loading="lazy" class="alignnone size-full wp-image-3841" src="http://bluedesignvn.com/wp-content/uploads/2023/01/BLUE.jpg" alt="" width="100" height="100">
+            <img decoding="async" loading="lazy" class="alignnone size-full wp-image-3841" src="{{ uploaded_asset(get_setting('footer_logo')) }}" alt="" width="70%">
           </p>
         </div>
       </div>
@@ -103,8 +103,8 @@
       </div>
       <div id="text-11" class="widget edgtf-sidearea widget_text">
         <div class="textwidget">
-          <p>
-            <em>Chúng tôi là Bluedesign. Với hơn 10 năm trong lĩnh vực cung cấp dịch vụ tư vấn thiết kế và hoàn thiện công trình.</em>
+          <p style="font-size: 15px">
+            <em>{{ get_setting('about_us_description'); }}</em>
           </p>
         </div>
       </div>
@@ -118,13 +118,13 @@
           <div class="edgtf-il-icon-holder">
             <i class="fal fa-headphones-alt" style="color: #fff;font-size: 21px"></i>
           </div>
-          <p class="edgtf-il-text" style="color: #fff;font-size: 15px;padding-left: 13px">Call us on 090.344.6413</p>
+          <p class="edgtf-il-text" style="color: #fff;font-size: 15px;padding-left: 13px">Call us on {{ get_setting('contact_phone') }}</p>
         </div>
         <div class="edgtf-icon-list-holder  edgtf-icon-list-inline-display" style="margin-bottom: 0px">
           <div class="edgtf-il-icon-holder">
             <i class="fal fa-map-marker-alt" style="color: #fff;font-size: 21px"></i>
           </div>
-          <p class="edgtf-il-text" style="color: #fff;font-size: 15px;padding-left: 13px">26A22 Gleximco, Le Trong Tan, Hoai Duc, Ha Noi</p>
+          <p class="edgtf-il-text" style="color: #fff;font-size: 15px;padding-left: 13px">{{ get_setting('contact_address') }}</p>
         </div>
         <div class="edgtf-icon-list-holder  edgtf-icon-list-inline-display" style="margin-bottom: 0px">
           <div class="edgtf-il-icon-holder">
@@ -136,7 +136,7 @@
           <div class="edgtf-il-icon-holder">
             <i class="fal fa-envelope" style="color: #fff;font-size: 21px"></i>
           </div>
-          <p class="edgtf-il-text" style="color: #fff;font-size: 15px;padding-left: 13px">Contact.bluedesignvn@gmail.com</p>
+          <p class="edgtf-il-text" style="color: #fff;font-size: 15px;padding-left: 13px">{{ get_setting('contact_email') }}</p>
         </div>
       </div>
     </section>
@@ -163,6 +163,7 @@
             <div class="container-large">
               <div class="row row--no-gutters align-items-center l-menu">
                 <ul class="col-lg-11 offset-pad-lg-1 l-menu-left">
+                  <li class="l-menu-left__item"><a class="l-menu-left__link js-wordsplit reload-home" href="#" title="Trang Chủ">Trang Chủ</a></li>
                   <?php 
                     $categories_menu = \App\BlogCategory::where(['status' => 1, 'is_show_menu' =>  1])->get();
                   ?>

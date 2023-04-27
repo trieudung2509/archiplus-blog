@@ -878,6 +878,7 @@ h6 {
 
 .section--post [class*='col-'] {
   padding: 0px 5px;
+  margin-bottom: 30px;
 }
 
 .section--post .content__small-text {
@@ -1003,6 +1004,7 @@ body.edgtf-right-side-menu-opened .edgtf-side-menu {
 
 .edgtf-side-menu .widget img {
   margin: 0 auto;
+  object-fit: cover;
 }
 
 
@@ -1083,6 +1085,7 @@ body.edgtf-right-side-menu-opened .edgtf-side-menu {
 }
 
 .l-header__container-wrapper {
-    padding: 80px 0px;
+    padding: 90px 0px;
+    margin-bottom: 30px;
     background: url("../img/shop-title-pattern.png") no-repeat;
 }
