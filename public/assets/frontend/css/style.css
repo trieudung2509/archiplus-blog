@@ -806,7 +806,7 @@ h6 {
 .edgtf-link-section-holder .edgtf-single-link-section-holder {
   display: inline-block;
   position: relative;
-  margin-bottom: 10px;
+  margin-top: 18px;
 }
 
 .edgtf-link-section-holder .edgtf-single-link-section-holder a {
@@ -858,7 +858,7 @@ h6 {
   margin: 0;
   font-family: 'Roboto Condensed', sans-serif;
   font-weight: 300;
-  font-size: 17px;
+  font-size: 20px;
   color: #fff;
   text-transform: uppercase;
 }
