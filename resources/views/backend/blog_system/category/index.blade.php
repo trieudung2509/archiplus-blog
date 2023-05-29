@@ -150,7 +150,7 @@
             }
             $.post('{{ route('blog-category.change-show-menu-status') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
                 if(data == 1){
-                    AIZ.plugins.notify('success', '{{ translate('Change status home page successfully') }}');
+                    AIZ.plugins.notify('success', '{{ translate('Change status menu successfully') }}');
                 }
                 else{
                     AIZ.plugins.notify('danger', '{{ translate('Something went wrong') }}');

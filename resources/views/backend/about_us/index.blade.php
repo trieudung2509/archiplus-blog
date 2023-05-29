@@ -35,7 +35,7 @@
                             {{translate('Content')}}
                         </label>
                         <div class="col-md-10">
-                            <textarea class="aiz-text-editor" name="content"> {!! $about_us->content != null ? $about_us->content : '' !!} </textarea>
+                            <textarea class="tiny-text" name="content"> {!! $about_us->content != null ? $about_us->content : '' !!} </textarea>
                         </div>
                     </div>
 

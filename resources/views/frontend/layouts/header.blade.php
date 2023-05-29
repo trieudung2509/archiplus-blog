@@ -25,7 +25,7 @@
                       <div class="inner">
                         <ul>
                         <?php 
-                            $categories_menu = \App\BlogCategory::where(['status' => 1, 'is_show_menu' =>  1])->get();
+                            $categories_menu = \App\BlogCategory::where(['status' => 1, 'is_show_menu' =>  1])->orderBy('display_order','ASC')->get();
                           ?>
                           @foreach( $categories_menu as $cate)
                           <li class="menu-item menu-item-type-post_type menu-item-object-page ">

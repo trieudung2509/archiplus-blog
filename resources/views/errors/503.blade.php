@@ -1,7 +1,7 @@
 @extends('backend.layouts.layout')
 
 @section('content')
-<section class="align-items-center d-flex h-100 bg-white">
+<section class="align-items-center d-flex h-100 bg-white" style="margin-top: 215px;">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6 mx-auto text-center py-4">
@@ -13,7 +13,7 @@
 				<p class="headline-1 color-gold mb-10em">Maintenance</p>
 				<h1 class="headline-3 letters js-wordsplit text-center mb-10em">We are Under Maintenance. We will be back soon!</h1>
 				<p class="text-center">
-				<a href="/" class="btn btn--bordered" title="Return to Xavio">Return to Archiplus</a>
+				<a href="#" class="btn btn--bordered reload-home" title="Return to Xavio">Return to Archiplus</a>
 				</p>
 			</div>
 		</div>

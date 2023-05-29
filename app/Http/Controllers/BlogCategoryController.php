@@ -146,7 +146,7 @@ class BlogCategoryController extends Controller
     public function change_status(Request $request) {
         $category = BlogCategory::find($request->id);
         $category->status = $request->status;
-        $category->category_status = $request->status == 1 ? "published" : "draft";
+        
         $category->save();
         return 1;
     }

@@ -122,13 +122,6 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label">{{translate('External Link')}}</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" name="external_link" placeholder="{{translate('External Link')}}" value="{{ $blog->external_link }}">
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
                         <label class="col-md-2 col-form-label">{{translate('Meta Title')}}</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="meta_title" value="{{ $blog->meta_title }}" placeholder="{{translate('Meta Title')}}">

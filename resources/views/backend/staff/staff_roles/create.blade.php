@@ -25,11 +25,33 @@
                     <div class="col-md-8">
                         <div class="row">
                             <div class="col-md-10">
-                                <label class="col-from-label">{{ translate('Customers') }}</label>
+                                <label class="col-from-label">{{ translate('Dashboard') }}</label>
                             </div>
                             <div class="col-md-2">
                                 <label class="aiz-switch aiz-switch-success mb-0">
                                     <input type="checkbox" name="permissions[]" class="form-control demo-sw" value="8">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <label class="col-from-label">{{ translate('About Us') }}</label>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="aiz-switch aiz-switch-success mb-0">
+                                    <input type="checkbox" name="permissions[]" class="form-control demo-sw" value="9">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <label class="col-from-label">{{ translate('Contact Page') }}</label>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="aiz-switch aiz-switch-success mb-0">
+                                    <input type="checkbox" name="permissions[]" class="form-control demo-sw" value="10">
                                     <span class="slider round"></span>
                                 </label>
                             </div>
@@ -41,6 +63,17 @@
                             <div class="col-md-2">
                                 <label class="aiz-switch aiz-switch-success mb-0">
                                     <input type="checkbox" name="permissions[]" class="form-control demo-sw" value="11">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <label class="col-from-label">{{ translate('Slider Banners') }}</label>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="aiz-switch aiz-switch-success mb-0">
+                                    <input type="checkbox" name="permissions[]" class="form-control demo-sw" value="12">
                                     <span class="slider round"></span>
                                 </label>
                             </div>
@@ -96,17 +129,6 @@
                             <div class="col-md-2">
                                 <label class="aiz-switch aiz-switch-success mb-0">
                                     <input type="checkbox" name="permissions[]" class="form-control demo-sw" value="23">
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-10">
-                                <label class="col-from-label">{{ translate('System') }}</label>
-                            </div>
-                            <div class="col-md-2">
-                                <label class="aiz-switch aiz-switch-success mb-0">
-                                    <input type="checkbox" name="permissions[]" class="form-control demo-sw" value="24">
                                     <span class="slider round"></span>
                                 </label>
                             </div>

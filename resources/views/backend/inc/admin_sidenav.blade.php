@@ -16,12 +16,15 @@
             <ul class="aiz-side-nav-list" id="search-menu">
             </ul>
             <ul class="aiz-side-nav-list" id="main-menu" data-toggle="aiz-side-menu">
+
+            @if(Auth::user()->user_type == 'admin' || in_array('8', json_decode(Auth::user()->staff->role->permissions)))
                 <li class="aiz-side-nav-item">
                     <a href="{{route('admin.dashboard')}}" class="aiz-side-nav-link">
                         <i class="las la-home aiz-side-nav-icon"></i>
                         <span class="aiz-side-nav-text">{{translate('Dashboard')}}</span>
                     </a>
                 </li>
+            @endif
 
             @if(Auth::user()->user_type == 'admin' || in_array('22', json_decode(Auth::user()->staff->role->permissions)))
             <li class="aiz-side-nav-item">
@@ -31,6 +34,7 @@
                 </a>
             </li>
             @endif
+
             @if(Auth::user()->user_type == 'admin' || in_array('23', json_decode(Auth::user()->staff->role->permissions)))
             <!--Blog System-->
             <li class="aiz-side-nav-item">
@@ -54,26 +58,32 @@
             </li>
             @endif
 
+            @if(Auth::user()->user_type == 'admin' || in_array('9', json_decode(Auth::user()->staff->role->permissions)))
             <li class="aiz-side-nav-item">
                 <a href="{{ route('aboutus.edit') }}" class="aiz-side-nav-link {{ areActiveRoutes(['aboutus.edit'])}}">
                     <i class="las la-folder-open aiz-side-nav-icon"></i>
                     <span class="aiz-side-nav-text">{{ translate('About Us') }}</span>
                 </a>
             </li>
+            @endif
 
+            @if(Auth::user()->user_type == 'admin' || in_array('10', json_decode(Auth::user()->staff->role->permissions)))
             <li class="aiz-side-nav-item">
                 <a href="{{ route('contact.edit') }}" class="aiz-side-nav-link {{ areActiveRoutes(['contact.edit'])}}">
                     <i class="las la-folder-open aiz-side-nav-icon"></i>
                     <span class="aiz-side-nav-text">{{ translate('Contact Page') }}</span>
                 </a>
             </li>
+            @endif
 
+            @if(Auth::user()->user_type == 'admin' || in_array('12', json_decode(Auth::user()->staff->role->permissions)))
             <li class="aiz-side-nav-item">
                 <a href="{{ route('slider.home') }}" class="aiz-side-nav-link {{ areActiveRoutes(['slider.home'])}}">
                     <i class="las la-folder-open aiz-side-nav-icon"></i>
                     <span class="aiz-side-nav-text">{{ translate('Slider Banners') }}</span>
                 </a>
             </li>
+            @endif
 
             <!-- marketing -->
             @if(Auth::user()->user_type == 'admin' || in_array('11', json_decode(Auth::user()->staff->role->permissions)))

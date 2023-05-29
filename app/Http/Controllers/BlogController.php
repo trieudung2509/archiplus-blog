@@ -150,7 +150,7 @@ class BlogController extends Controller
         }
         return response()->json([
             'success' => $status,
-            'path' => $path,
+            'location' => uploaded_asset($upload->id),
         ]);
     }
 

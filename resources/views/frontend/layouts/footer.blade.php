@@ -22,7 +22,7 @@
             <a class="l-footer__menu-link reload-home" href="#" title="Trang chủ" >Trang chủ</a>
           </li>
           <?php 
-            $list_categories = \App\BlogCategory::where(['status' => 1, 'is_show_menu' =>  1])->select('id', 'slug', 'category_name')->get();
+            $list_categories = \App\BlogCategory::where(['status' => 1, 'is_show_menu' =>  1])->orderBy('display_order','ASC')->select('id', 'slug', 'category_name')->get();
           ?>
           @foreach( $list_categories as $cate)
           <li class="l-footer__menu-item">

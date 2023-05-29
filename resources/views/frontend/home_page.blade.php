@@ -118,7 +118,7 @@
                             <h2 class="edgtf-link-section-title"> DỰ ÁN </h2>
                         </div>
                         <?php 
-                            $categories_menu = \App\BlogCategory::where(['status' => 1, 'is_home_page' =>  1])->get();
+                            $categories_menu = \App\BlogCategory::where(['status' => 1, 'is_home_page' =>  1])->orderBy('display_order','ASC')->get();
                         ?>
                         @foreach( $categories_menu as $cate)
                             <div class="edgtf-single-link-section-holder">
