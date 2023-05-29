@@ -67,15 +67,6 @@
             </li>
             @endif
 
-            @if(Auth::user()->user_type == 'admin' || in_array('10', json_decode(Auth::user()->staff->role->permissions)))
-            <li class="aiz-side-nav-item">
-                <a href="{{ route('contact.edit') }}" class="aiz-side-nav-link {{ areActiveRoutes(['contact.edit'])}}">
-                    <i class="las la-folder-open aiz-side-nav-icon"></i>
-                    <span class="aiz-side-nav-text">{{ translate('Contact Page') }}</span>
-                </a>
-            </li>
-            @endif
-
             @if(Auth::user()->user_type == 'admin' || in_array('12', json_decode(Auth::user()->staff->role->permissions)))
             <li class="aiz-side-nav-item">
                 <a href="{{ route('slider.home') }}" class="aiz-side-nav-link {{ areActiveRoutes(['slider.home'])}}">

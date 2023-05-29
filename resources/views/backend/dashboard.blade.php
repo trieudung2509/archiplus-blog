@@ -73,7 +73,11 @@
                         {{ $post->title }}
                     </td>
                     <td>
-                        {{ $post->category != null ? $post->category->category_name : "" }}
+                        @if($post->category != null)
+                            {{ $post->category->category_name }}
+                        @else
+                            --
+                        @endif
                     </td>
                     <td>
                         @if($post->published_date != null)
@@ -83,7 +87,11 @@
                         @endif
                     </td>
                     <td>
-                        {{ $post->author != null ? $post->author->name : "" }}
+                        @if($post->author != null)
+                            {{ $post->author->name }}
+                        @else
+                            --
+                        @endif
                     </td>
                 </tr>
                 @endforeach

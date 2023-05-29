@@ -129,7 +129,7 @@
                                 </a>
                             </div>
                             <?php 
-                                $item_posts = \App\Blog::where(['status' => 1, 'category_id' => $cate->id])->orderBy('published_date')
+                                $item_posts = \App\Blog::where(['status' => 1, 'category_id' => $cate->id])->orderBy('published_date', 'DESC')
                                     ->take(3)->select('id','slug', 'banner', 'title', 'published_date', 'short_description')->get();
                             ?>
                             <div class="row" style="margin: 15px 0px 0px;">

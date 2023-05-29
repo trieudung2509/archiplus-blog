@@ -82,26 +82,6 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label" for="signinSrEmail">
-                            {{translate('Thumbnail')}} 
-                            <small>(1300x650)</small>
-                        </label>
-                        <div class="col-md-10">
-                            <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text bg-soft-secondary font-weight-medium">
-                                        {{ translate('Browse')}}
-                                    </div>
-                                </div>
-                                <div class="form-control file-amount">{{ translate('Choose File') }}</div>
-                                <input type="hidden" name="image_thumbnail" class="selected-files" value="{{ $blog->image_thumbnail }}">
-                            </div>
-                            <div class="file-preview box sm">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group row">
                         <label class="col-md-2 col-form-label">
                             {{translate('Short Description')}}
                             <span class="text-danger">*</span>
@@ -117,7 +97,7 @@
                             <br/><br/>
                         </label>
                         <div class="col-md-10">
-                            <textarea  class="tiny-text" name="description" >{{ $blog->description }}</textarea>
+                            <textarea class="tiny-text" name="description" >{!! $blog->description != null ? $blog->description : "" !!}</textarea>
                         </div>
                     </div>
 

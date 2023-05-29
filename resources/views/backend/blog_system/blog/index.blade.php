@@ -145,7 +145,7 @@
                             @endif
                         </td>
                         <td>
-                            {{ $blog->author->name }}
+                            {{ $blog->author != null ? $blog->author->name : "" }}
                         </td>
                         <td>
                             @if($blog->post_modified != null)

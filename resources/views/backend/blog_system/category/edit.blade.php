@@ -24,7 +24,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <!-- <div class="form-group row">
                         <label class="col-md-3 col-form-label">{{translate('Parent Category')}}</label>
                         <div class="col-md-9">
                             <select type="text" placeholder="{{translate('Parent Category Id')}}" id="parent_id" name="parent_id" class="form-control aiz-selectpicker" data-live-search="true" value="{{ $cateogry->parent_id }}">
@@ -37,7 +37,7 @@
                                 @endforeach
                             </select>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label">
