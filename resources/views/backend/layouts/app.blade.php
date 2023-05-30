@@ -86,7 +86,8 @@
     @yield('script')
 
     <script type="text/javascript">
-		tinymce.init({
+        document.addEventListener("DOMContentLoaded", () => {
+            tinymce.init({
             selector: 'textarea.tiny-text',
 			height: 500,
 			plugins: [
@@ -98,6 +99,8 @@
 			automatic_uploads: true,
             media_filter_html: false,
             media_live_embeds: true,
+            relative_urls: false,
+            remove_script_host: false,
             fontsize_formats: "8pt 10pt 12pt 14pt 18pt 24pt 36pt",
 			toolbar: 'undo redo | blocks | bold italic backcolor | ' +
 			'alignleft aligncenter alignright alignjustify | ' +
@@ -123,7 +126,8 @@
                 input.click();
             },
 		});
-
+    });
+	
 	    @foreach (session('flash_notification', collect())->toArray() as $message)
 	        AIZ.plugins.notify('{{ $message['level'] }}', '{{ $message['message'] }}');
 	    @endforeach

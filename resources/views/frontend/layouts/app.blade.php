@@ -4,7 +4,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="app-url" content="{{ getBaseURL() }}">
     <meta name="file-base-url" content="{{ getFileBaseURL() }}">
-
+    <link rel="icon" href="{{ uploaded_asset(get_setting('site_icon')) }}">
 
     <meta charset="utf-8">
     <title>@yield('meta_description', get_setting('meta_description') )</title>
@@ -16,7 +16,6 @@
     <meta name="keywords" content="@yield('meta_keywords', get_setting('meta_keywords') )">
     @yield('meta')
 
-    <link rel="icon" href="{{ uploaded_asset(get_setting('site_icon')) }}">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ static_asset('assets/frontend/css/main.css') }}">
     <script>
