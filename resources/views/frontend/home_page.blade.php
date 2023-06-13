@@ -130,7 +130,7 @@
                             </div>
                             <?php 
                                 $item_posts = \App\Blog::where(['status' => 1, 'category_id' => $cate->id])->orderBy('published_date', 'DESC')
-                                    ->take(3)->select('id','slug', 'banner', 'title', 'published_date', 'short_description')->get();
+                                    ->take(3)->select('id','slug', 'banner', 'title', 'published_date', 'short_description', 'description')->get();
                             ?>
                             <div class="row" style="margin: 15px 0px 0px;">
                                 @foreach($item_posts as $post)
@@ -155,7 +155,11 @@
                                         </div>
                                         <div class="tile__content content">
                                             <h2 class="headline-5">{{ $post->title }}</h2>
-                                            <p class="content__small-text">13 pics</p>
+                                            <p class="content__small-text"><?php 
+                                                    $description = $post->description;
+                                                    preg_match_all("/<img/",$description,$m);
+                                                    echo count($m[0]);
+                                                     ?> pics</p>
                                             <svg version="1.1" id="btn-arrow-1949404842" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="18px" height="4px" viewBox="0 0 18 4" enable-background="new 0 0 18 4" xml:space="preserve">
                                             <polyline fill="none" stroke="#fff" stroke-miterlimit="10" points="0,3.508 16.809,3.508 13.686,0.342 "></polyline>
                                             </svg>
@@ -170,7 +174,5 @@
                 </div>
             </div>
         </div>
-       
-                    
     </main>
 @endsection

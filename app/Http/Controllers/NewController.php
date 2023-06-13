@@ -17,7 +17,7 @@ class NewController extends Controller
         $parent_id = $first_category->parent_id;
         $description = $first_category->short_description;
         $list_posts = Blog::Where(['category_id' => $categoryId, 'status' => 1])->orderBy('published_date', 'DESC')
-                            ->select('id','title','slug', 'short_description', 'published_date', 'banner')->paginate(12);
+                            ->select('id','title','slug', 'short_description', 'description', 'published_date', 'banner')->paginate(12);
         
         $arrCategoryList = BlogCategory::Where('status', 1)->select('id', 'category_name', 'slug', 'parent_id')->get();
 
@@ -29,7 +29,7 @@ class NewController extends Controller
         $categoryId =  BlogCategory::Where('slug', $slug)->select('id')->first();
         $childrenIds = BlogCategory::Where('parent_id', $categoryId)->select('id')->get();
         $list_posts = Blog::Where('category_id', $categoryId)
-                        ->orWhereIn('category_id', $childrenIds)->select('id','title','slug', 'short_description', 'banner', 'created_at')->paginate(12);
+                        ->orWhereIn('category_id', $childrenIds)->select('id','title','slug', 'short_description', 'description','banner', 'created_at')->paginate(12);
         $returnHTML = view('frontend.ajax_post',['list_posts'=> $list_posts, 'slug' => $slug, 'page' => (int)$page + 1])->render();
         return $returnHTML;
     }
